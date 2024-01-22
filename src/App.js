@@ -5,7 +5,11 @@ import React from 'react'
 function App() {
 
   return (
-    <div className='text-2xl p-2'>Is this still working?</div>
+    <>
+      <section className='flex flex-row'>
+        <div className='text-2xl p-2 justify-center'>Is this still working?</div>
+      </section>
+    </>
   );
 }
 

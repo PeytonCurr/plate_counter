@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      <section className='grid grid-col-1 h-screen'>
+      <section className='grid grid-col-1 h-screen text-red-600'>
         <div className='text-2xl p-2 justify-center bg-red-500'>Is this still working?</div>
         <div className='bg-green-400'>Chicken</div>
         <div></div>

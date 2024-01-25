@@ -12,22 +12,20 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className='bg-amber-50'>
         <Navbar></Navbar>
-        <section className='grid grid-col-1 h-screen bg-amber-50'>
+        <section className='grid grid-col-1 grid-rows-5' style={{ height: "92vh" }}>
 
-          <div className='text-2xl p-2 justify-center'>Dumbbell + Plates Competent</div>
+          <div className='text-2xl p-2 justify-center bg-red-400 row-span-2'>Dumbbell + Plates Competent</div>
 
-          <div className=''>Future Stats Component</div>
+          <div className='bg-green-300'>Future Stats Component</div>
 
           <div className='flex justify-center items-center'>
-            <form onSubmit={enterWeight} className='w-1/3'>
-              <div> Check me out </div>
-              <input type="number" className="w-2/3" />
-              <button type='submit'> Enter </button>
+            <form onSubmit={enterWeight} className=' bg-white rounded shadow-sm p-6 pt-4 w-2/3'>
+              <div className='text-center mb-2'> Enter Weight </div>
+              <input type="number" className="w-full rounded p-1 px-2 border-2" />
             </form>
           </div>
-
         </section>
       </div>
     </>

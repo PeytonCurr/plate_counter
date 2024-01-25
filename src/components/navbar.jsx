@@ -4,7 +4,7 @@ import { mdiDumbbell } from '@mdi/js';
 
 function Navbar() {
   return (
-    <section className='grid grid-cols-1 bg-amber-50 shadow sticky top-0'>
+    <section className='grid grid-cols-1 shadow sticky top-0' style={{ height: "8vh" }}>
 
       <div className='text-2xl flex items-center justify-center p-2'>
         <Icon path={mdiDumbbell} size={1} color="red" rotate={45} />

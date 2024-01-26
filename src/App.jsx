@@ -6,8 +6,8 @@ function App() {
 
   const [weight, setWeight] = useState(0);
 
-  function enterWeight() {
-
+  function changeWeight(formData) {
+    setWeight(formData.value)
   }
 
   return (
@@ -21,9 +21,10 @@ function App() {
           <div className='bg-green-300'>Future Stats Component</div>
 
           <div className='flex justify-center items-center'>
-            <form onSubmit={enterWeight} className=' bg-white rounded shadow-sm p-6 pt-4 w-2/3'>
-              <div className='text-center mb-2'> Enter Weight </div>
-              <input type="number" className="w-full rounded p-1 px-2 border-2" />
+            <form onSubmit={changeWeight} className=' bg-white rounded shadow-sm p-6 pt-4 w-2/3'>
+              <div className='mb-2'> Enter Weight </div>
+              <input value={weight} type="number" className="w-2/3 rounded p-1 px-2 border-2" />
+              <button type='submit' className='ml-2 p-1 px-2 bg-slate-400 rounded'> Enter </button>
             </form>
           </div>
         </section>

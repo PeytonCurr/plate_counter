@@ -6,25 +6,33 @@ function App() {
 
   const [weight, setWeight] = useState(0);
 
-  function changeWeight(formData) {
-    setWeight(formData.value)
+
+  function handleSubmit(event) {
+    event.preventDefault();
   }
+
+  function handleChange(event) {
+    setWeight(event.target.value)
+    console.log(weight)
+  }
+
 
   return (
     <>
-      <div className='bg-amber-50'>
+      <div className='bg-blue-100'>
         <Navbar></Navbar>
-        <section className='grid grid-col-1 grid-rows-5' style={{ height: "92vh" }}>
+        <section className='grid grid-col-1 grid-rows-5 p-2 gap-2 bg-blue-100' style={{ height: "92vh" }}>
 
-          <div className='text-2xl p-2 justify-center bg-red-400 row-span-2'>Dumbbell + Plates Competent</div>
+          <div className='text-2xl p-2 justify-center bg-blue-300 row-span-2 rounded'>Dumbbell + Plates Competent</div>
 
-          <div className='bg-green-300'>Future Stats Component</div>
+          <div className='bg-blue-300 rounded'>Future Stats Component</div>
 
-          <div className='flex justify-center items-center'>
-            <form onSubmit={changeWeight} className=' bg-white rounded shadow-sm p-6 pt-4 w-2/3'>
-              <div className='mb-2'> Enter Weight </div>
-              <input value={weight} type="number" className="w-2/3 rounded p-1 px-2 border-2" />
-              <button type='submit' className='ml-2 p-1 px-2 bg-slate-400 rounded'> Enter </button>
+          <div className='flex justify-center items-center rounded bg-blue-300'>
+            <form onSubmit={handleSubmit} className=' bg-white rounded shadow-sm p-6 pt-4 w-2/3'>
+              <div className='text-center mb-2'> Enter Weight: {weight} </div>
+              <div className='flex justify-center'>
+                <input value={weight || ""} type="number" step={5} max={1000} onChange={handleChange} className="text-center w-3/4 rounded p-1 px-2 border-2" />
+              </div>
             </form>
           </div>
         </section>

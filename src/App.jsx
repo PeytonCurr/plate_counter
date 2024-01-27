@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <section className='grid grid-col-1 grid-rows-5 p-2 gap-2 bg-blue-100' style={{ height: "92vh" }}>
 
-        <BarbellPlates />
+        <BarbellPlates weight={weight} />
 
         {weight > 0 && weight % 5 == 0 &&
           <Stats />

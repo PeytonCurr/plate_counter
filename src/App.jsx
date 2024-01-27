@@ -1,3 +1,4 @@
+import WeightForm from './components/weightForm.jsx';
 import logo from './logo.svg';
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/navbar.jsx'
@@ -5,17 +6,7 @@ import Navbar from './components/navbar.jsx'
 function App() {
 
   const [weight, setWeight] = useState(0);
-
-
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
-
-  function handleChange(event) {
-    setWeight(event.target.value)
-    console.log(weight)
-  }
-
+  const [barBell, setBarBell] = useState(false);
 
   return (
     <>
@@ -25,16 +16,12 @@ function App() {
 
           <div className='text-2xl p-2 justify-center bg-blue-300 row-span-2 rounded shadow'>Dumbbell + Plates Competent</div>
 
-          <div className='bg-blue-300 rounded shadow'>Future Stats Component</div>
+          {weight > 0 && weight % 5 == 0 &&
+            <div className='bg-blue-300 rounded shadow'>Future Stats Component</div>
+          }
 
-          <div className='flex justify-center items-center rounded bg-blue-300 shadow'>
-            <form onSubmit={handleSubmit} className=' bg-blue-50 rounded shadow p-6 pt-4 w-2/3'>
-              <div className='text-center mb-2'> Enter Weight: {weight} </div>
-              <div className='flex justify-center'>
-                <input value={weight || ""} type="number" step={5} max={1000} onChange={handleChange} className="text-center w-3/4 rounded p-1 px-2 border-2" />
-              </div>
-            </form>
-          </div>
+          <WeightForm weight={weight} setWeight={setWeight} barBell={barBell} setBarBell={setBarBell} />
+
         </section>
       </div>
     </>

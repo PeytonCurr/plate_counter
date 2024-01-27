@@ -12,12 +12,12 @@ function App() {
   return (
     <div className='bg-blue-100'>
       <Navbar />
-      <section className='grid grid-col-1 grid-rows-5 p-2 gap-2 bg-blue-100' style={{ height: "92vh" }}>
+      <section className='grid grid-col-1 grid-rows-5 md:grid-rows-7 p-2 gap-2 bg-blue-100' style={{ height: "92vh" }}>
 
-        <BarbellPlates weight={weight} />
+        <BarbellPlates weight={weight} barBell={barBell} />
 
         {weight > 0 && weight % 5 == 0 &&
-          <Stats />
+          <Stats weight={weight} />
         }
 
         <WeightForm weight={weight} setWeight={setWeight} barBell={barBell} setBarBell={setBarBell} />

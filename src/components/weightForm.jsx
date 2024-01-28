@@ -18,7 +18,7 @@ function WeightForm(props) {
           <span>Enter Weight [ {props.weight} + {props.barBell ?
             "True" : "False"
           } ] </span>
-          <span>Barbell?</span>
+          <span>45lb Barbell?</span>
         </h1>
 
         <div className="flex justify-between">

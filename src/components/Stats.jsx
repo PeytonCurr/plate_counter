@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 function Stats(props) {
 
-  const [newWeight, setNewWeight] = useState(0);
   const [count45, setCount45] = useState(0);
   const [count35, setCount35] = useState(0);
   const [count25, setCount25] = useState(0);
@@ -13,38 +12,30 @@ function Stats(props) {
 
   useEffect(() => {
     let weight = props.weight / 2
-    while (weight > 0) {
-      if (weight >= 45) {
-        let temp = count45 + 1
-        setCount45(temp)
-        weight -= 45
+    let plates = [45, 35, 25, 10, 5, 2_5]
+    let plateCounter = {}
+
+    setCount45(0)
+    setCount35(0)
+    setCount25(0)
+    setCount10(0)
+    setCount5(0)
+    setCount2_5(0)
+
+    plates.forEach((plate) => {
+      const interFunction = `setCount${plate}`
+      if (plate == 2_5) {
+        plate = 2.5
       }
-      else if (weight >= 35) {
-        let temp = count35 + 1
-        setCount35(temp)
-        weight -= 35
+      plateCounter[plate] = 0
+      while (weight >= plate) {
+        plateCounter[plate] += 1
+        weight -= plate
       }
-      else if (weight >= 25) {
-        let temp = count25 + 1
-        setCount25(temp)
-        weight -= 25
+      if (plateCounter[plate] > 0) {
+        eval(interFunction + `(${plateCounter[plate]})`)
       }
-      else if (weight >= 10) {
-        let temp = count10 + 1
-        setCount10(temp)
-        weight -= 10
-      }
-      else if (weight >= 5) {
-        let temp = count5 + 1
-        setCount5(temp)
-        weight -= 5
-      }
-      else if (weight >= 2.5) {
-        let temp = count2_5 + 1
-        setCount2_5(temp)
-        weight -= 2.5
-      }
-    }
+    })
   }, [props.weight]);
 
   return (

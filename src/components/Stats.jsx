@@ -10,12 +10,15 @@ function Stats(props) {
 
   function displayStats() {
     let weight = props.weight / 2
+    let count = 0
     props.resetCounts()
     plates.forEach((plate) => {
       while (weight >= plate) {
-        props.setCounts({ ...props.counts, [plate]: props.counts[plate] + 1 })
+        count += 1
         weight -= plate
       }
+      props.setCounts({ ...props.counts, [plate]: count })
+      count = 0
     })
   }
 

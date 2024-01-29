@@ -37,7 +37,7 @@ function App() {
         <BarbellPlates weight={weight} barBell={barBell} />
 
         {weight > 0 && weight % 5 == 0 &&
-          <Stats weight={weight} counts={counts} resetCounts={resetCounts} />
+          <Stats weight={weight} counts={counts} setCounts={setCounts} resetCounts={resetCounts} />
         }
 
         <WeightForm weight={weight} setWeight={setWeight} barBell={barBell} setBarBell={setBarBell} />

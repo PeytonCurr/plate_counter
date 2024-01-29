@@ -37,23 +37,27 @@ function Stats(props) {
     <div className='bg-blue-300 rounded shadow grid grid-cols-2 p-2 px-4 gap-4 row-span-1 md:row-span-2'>
 
       <div className=' bg-blue-50 rounded shadow p-6 pt-4'>
-
         <ul>
           {plates.map((plate) => (
-            <li key={plate}> {plate} - <span className='underline'>
-              {eval(`props.c${plate}`)} </span></li>
+            <li key={plate}> {plate} -
+              <span className='underline'>
+                {plate == 2.5 ? props.c2_5 : eval(`props.c${plate}`)}
+              </span></li>
           ))}
         </ul>
-
       </div>
 
       <div className=' bg-blue-50 rounded shadow p-6 pt-4'>
-        <h1>45 - <span className='underline'>{props.c45}</span></h1>
-        <h1>35 - <span className='underline'>{props.c35}</span></h1>
-        <h1>25 - <span className='underline'>{props.c25}</span></h1>
-        <h1>10 - <span className='underline'>{props.c10}</span></h1>
-        <h1>5 - <span className='underline'>{props.c5}</span></h1>
-        <h1>2.5 - <span className='underline'>{props.c2_5}</span></h1>
+        <ul>
+          {plates.map((plate) => (
+
+            <li key={plate}> {plate} -
+              <span className='underline'>
+                {plate == 2.5 ? props.c2_5 : eval(`props.c${plate}`)}
+              </span></li>
+
+          ))}
+        </ul>
       </div>
 
     </div>

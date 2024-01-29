@@ -5,6 +5,10 @@ function Stats(props) {
   const plates = [45, 35, 25, 10, 5, 2.5];
 
   useEffect(() => {
+    displayStats()
+  }, [props.weight]);
+
+  function displayStats() {
     let weight = props.weight / 2
 
     props.resetCounts()
@@ -15,8 +19,7 @@ function Stats(props) {
         weight -= plate
       }
     })
-  }, [props.weight]);
-
+  }
 
   return (
     <div className='bg-blue-300 rounded shadow grid grid-cols-2 p-2 px-4 gap-4 row-span-1 md:row-span-2'>

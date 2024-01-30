@@ -10,16 +10,17 @@ function Stats(props) {
 
   function displayStats() {
     let weight = props.weight / 2
-    let count = 0
+    let plateCounter = {}
+
     props.resetCounts()
     plates.forEach((plate) => {
+      plateCounter[plate] = 0
       while (weight >= plate) {
-        count += 1
+        plateCounter[plate] += 1
         weight -= plate
       }
-      props.setCounts({ ...props.counts, [plate]: count })
-      count = 0
     })
+    props.setCounts({ ...props.counts, ...plateCounter })
   }
 
   return (
@@ -28,10 +29,14 @@ function Stats(props) {
       <div className=' bg-blue-50 rounded shadow p-6 pt-4'>
         <ul>
           {plates.map((plate) => (
-            <li key={plate}> {plate} -
-              <span className='underline'>
-                {props.counts[plate]}
-              </span></li>
+            <>
+              {props.counts[plate] > 0 &&
+                <li key={plate}> {plate} -
+                  <span className='underline'>
+                    {props.counts[plate]}
+                  </span></li>
+              }
+            </>
           ))}
         </ul>
       </div>
@@ -39,10 +44,14 @@ function Stats(props) {
       <div className=' bg-blue-50 rounded shadow p-6 pt-4'>
         <ul>
           {plates.map((plate) => (
-            <li key={plate}> {plate} -
-              <span className='underline'>
-                {props.counts[plate]}
-              </span></li>
+            <>
+              {props.counts[plate] > 0 &&
+                <li key={plate}> {plate} -
+                  <span className='underline'>
+                    {props.counts[plate]}
+                  </span></li>
+              }
+            </>
           ))}
         </ul>
       </div>

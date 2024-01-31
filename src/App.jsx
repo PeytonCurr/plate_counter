@@ -7,6 +7,7 @@ import BarbellPlates from './components/BarbellPlates.jsx';
 function App() {
 
   const [weight, setWeight] = useState(0);
+  const [single, setSingle] = useState(false)
   const [barBell, setBarBell] = useState(false);
 
   const [counts, setCounts] = useState({
@@ -37,10 +38,10 @@ function App() {
         <BarbellPlates weight={weight} barBell={barBell} />
 
         {weight > 0 && weight % 5 == 0 &&
-          <Stats weight={weight} counts={counts} setCounts={setCounts} resetCounts={resetCounts} />
+          <Stats weight={weight} counts={counts} setCounts={setCounts} resetCounts={resetCounts} single={single} />
         }
 
-        <WeightForm weight={weight} setWeight={setWeight} barBell={barBell} setBarBell={setBarBell} />
+        <WeightForm weight={weight} setWeight={setWeight} barBell={barBell} setBarBell={setBarBell} single={single} setSingle={setSingle} />
 
       </section>
     </div>

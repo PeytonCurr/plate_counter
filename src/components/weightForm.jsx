@@ -12,25 +12,29 @@ function WeightForm(props) {
   }
 
   return (
-    <div className='flex justify-center items-center rounded bg-blue-300 shadow row-span-1 md:row-span-2'>
-      <form onSubmit={handleSubmit} className=' bg-blue-50 rounded shadow p-6 pt-4 w-2/3'>
-        <h1 className='text-start mb-2 flex justify-between'>
-          <span>Enter Weight [ {props.weight} + {props.barBell ?
+    <div className='items-center rounded bg-blue-300 shadow row-span-1 md:row-span-2 grid grid-cols-6 gap-3 p-4'>
+      <form onSubmit={handleSubmit} className=' bg-blue-50 rounded shadow p-6 pt-4 col-span-4 text-center'>
+        <h1 className='mb-2 text-center'>
+          Enter Weight [ {props.weight} + {props.barBell ?
             "True" : "False"
-          } ] </span>
-          <span>45lb Barbell?</span>
+          } ]
         </h1>
-
-        <div className="flex justify-between">
-          <input value={props?.weight || ""} type="number" step={5} max={1000} onChange={handleChange} className="text-center w-3/4 sm:w-4/5 rounded p-1 px-2 border-2" />
-
-          <input className="mr-5" type="checkbox" checked={props.barBell} onChange={e =>
-            props.setBarBell(e.target.checked)} />
-
-
-        </div>
+        <input value={props?.weight || ""} type="number" step={5} max={1000} onChange={handleChange} className="text-center  w-full rounded p-1 px-2 border-2" />
       </form>
-    </div>
+
+      <form className=' bg-blue-50 rounded shadow py-6 col-span-1 text-center'>
+        <h1 className='mb-3'>Barbell?</h1>
+        <input className="mb-2" type="checkbox" checked={props.barBell} onChange={e =>
+          props.setBarBell(e.target.checked)} />
+      </form>
+
+      <form className=' bg-blue-50 rounded shadow py-6 col-span-1 text-center'>
+        <h1 className='mb-3'>Single Side?</h1>
+        <input className="mb-2" type="checkbox" checked={props.single} onChange={e =>
+          props.setSingle(e.target.checked)} />
+      </form>
+
+    </div >
   );
 }
 

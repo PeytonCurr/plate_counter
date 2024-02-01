@@ -23,7 +23,7 @@ function WeightForm(props) {
       </form>
 
       <form className=' bg-blue-50 rounded shadow py-6 col-span-1 text-center'>
-        <h1 className='mb-3'>Barbell?</h1>
+        <h1 className='mb-3'>45lb Barbell?</h1>
         <input className="mb-2" type="checkbox" checked={props.barBell} onChange={e => {
           props.setBarBell(e.target.checked)
           if (props.single == true) {

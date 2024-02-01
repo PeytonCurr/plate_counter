@@ -6,17 +6,20 @@ function Stats(props) {
 
   useEffect(() => {
     displayStats()
-  }, [props.weight, props.single, props.barbell]);
+  }, [props.weight, props.single, props.barBell]);
 
   function displayStats() {
+    let plateCounter = {}
     let weight = props.weight
+    if (props.barBell) {
+      weight = weight - 45
+    }
     if (!props.single) {
       weight = weight / 2
     }
 
-    let plateCounter = {}
-
     props.resetCounts()
+
     plates.forEach((plate) => {
       plateCounter[plate] = 0
       while (weight >= plate) {

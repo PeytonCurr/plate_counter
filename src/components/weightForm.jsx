@@ -24,14 +24,22 @@ function WeightForm(props) {
 
       <form className=' bg-blue-50 rounded shadow py-6 col-span-1 text-center'>
         <h1 className='mb-3'>Barbell?</h1>
-        <input className="mb-2" type="checkbox" checked={props.barBell} onChange={e =>
-          props.setBarBell(e.target.checked)} />
+        <input className="mb-2" type="checkbox" checked={props.barBell} onChange={e => {
+          props.setBarBell(e.target.checked)
+          if (props.single == true) {
+            props.setSingle(!e.target.checked)
+          }
+        }} />
       </form>
 
       <form className=' bg-blue-50 rounded shadow py-6 col-span-1 text-center'>
         <h1 className='mb-3'>Single Side?</h1>
-        <input className="mb-2" type="checkbox" checked={props.single} onChange={e =>
-          props.setSingle(e.target.checked)} />
+        <input className="mb-2" type="checkbox" checked={props.single} onChange={e => {
+          props.setSingle(e.target.checked)
+          if (props.barBell == true) {
+            props.setBarBell(!e.target.checked)
+          }
+        }} />
       </form>
 
     </div >

@@ -12,7 +12,7 @@ function WeightForm(props) {
   }
 
   return (
-    <div className='items-center rounded bg-blue-300 shadow row-span-2 sm:row-span-1 md:row-span-2 grid grid-cols-10 gap-3 p-4'>
+    <div className='items-center rounded bg-blue-300 shadow row-span-1 md:row-span-2 grid grid-cols-10 gap-3 px-4'>
       <form onSubmit={handleSubmit} className=' bg-blue-50 rounded shadow p-6 pt-4 col-span-6 text-center'>
         <h1 className='mb-2 text-center'>
           Enter Weight [ {props.weight} + {props.barBell ?

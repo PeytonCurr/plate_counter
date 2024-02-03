@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BarBellSVG(props) {
+function BarBell(props) {
   return (
     <svg className='' transform={props.transform} width={props.width} height="20" viewBox="0 0 646 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M644 2H2V18H644V2Z" fill="#808080" stroke="black" stroke-width="3" />
@@ -14,4 +14,4 @@ function BarBellSVG(props) {
   )
 }
 
-export default BarBellSVG
+export default BarBell

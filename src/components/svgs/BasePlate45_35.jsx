@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BasePlate45_35SVG(props) {
+function BasePlate45_35(props) {
   return (
     <svg transform={props.transform} width="109" height={props.height} viewBox="0 0 109 288" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M21.8427 286C-2.47624 173.393 -6.66931 96.9667 21.8427 2H76C37.5 38 38.5 261 76 286H21.8427Z" fill={props.color} stroke="black" stroke-width="3" />
@@ -23,4 +23,4 @@ function BasePlate45_35SVG(props) {
   )
 }
 
-export default BasePlate45_35SVG
+export default BasePlate45_35

@@ -16,14 +16,12 @@ function BarbellPlates(props) {
         <BasePlate45_35 color={" " + (props.counts[45] > 0 && '#DC2626')} transform={"translate(0 0)"} />
       </div>
 
-      {plates.map((plate) => (
+      {Object.entries(props.counts).map(([plate, value]) => (Array(value).fill(0).map(() => (
         <>
-          {props.counts[plate] > 0 &&
-            <div></div>
-          }
-        </>
-      ))}
 
+        </>
+      )))
+      )}
 
       <div className='w-1/2'><BarBell /></div>
 
@@ -31,19 +29,17 @@ function BarbellPlates(props) {
 
         <SmartSVG name={BasePlate45_35} color={" " + (props.counts[45] > 0 && '#DC2626')} transform={"scale(-1,1) translate(0 0)"} />
 
-        <div className='w-full absolute left-[20px] bottom-0'>
+        <div className='w-full absolute left-[42%] bottom-0'>
           <AddPlate45_35 color={" " + (props.counts[45] > 0 && '#DC2626')} transform={`scale(-1,1)`} />
         </div>
-        <div className='w-full absolute left-[40px] bottom-0'>
-          <AddPlate45_35 color={" " + (props.counts[45] > 0 && '#DC2626')} transform={`scale(-1,1)`} />
-        </div>
-        <div className='w-full absolute left-[60px] bottom-0'>
+
+        <div className={'w-full absolute bottom-0 left-[84%]'}>
           <AddPlate45_35 color={" " + (props.counts[45] > 0 && '#DC2626')} transform={`scale(-1,1)`} />
         </div>
 
       </div>
 
-    </div>
+    </div >
   )
 }
 

@@ -35,9 +35,9 @@ function App() {
       <Navbar />
       <section className='grid grid-col-1 grid-rows-5 md:grid-rows-7 p-2 gap-2 bg-blue-100' style={{ height: "92vh" }}>
 
-        <BarbellPlates weight={weight} barBell={barBell} counts={counts} />
+        <BarbellPlates weight={weight} barBell={barBell} counts={counts} single={single} />
 
-        {weight > 0 && weight % 5 == 0 &&
+        {(weight > 0 && weight % 5 == 0) &&
           <Stats weight={weight} counts={counts} setCounts={setCounts} resetCounts={resetCounts} barBell={barBell} single={single} />
         }
 

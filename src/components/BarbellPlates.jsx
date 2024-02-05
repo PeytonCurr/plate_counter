@@ -32,10 +32,12 @@ function BarbellPlates(props) {
       </div>
 
       {/* SECTION BarBell*/}
-      <div className='w-1/2'><BarBell /></div>
+      {props.weight > 0 && props.barBell &&
+        <div className='w-1/3'><BarBell /></div>
+      }
 
       {/* SECTION Right Side*/}
-      <div className='w-1/12 relative'>
+      <div className='w-[6%] relative'>
 
         {plates.map((plate) => {
           if (isBroken) {
@@ -88,30 +90,30 @@ function BarbellPlates(props) {
             if (plate == 45) {
               name = AddPlate45_35
               color = '#DC2626'
-              startDistance = 3.3
+              startDistance = 2.4
             }
             else if (plate == 35) {
               name = AddPlate45_35
               color = '#2563eb'
-              startDistance = 3.3
+              startDistance = 2.4
             }
             else if (plate == 25) {
               name = AddPlate45_35
               color = '#ca8a04'
-              startDistance = 3.3
+              startDistance = 2.4
             }
             else if (plate == 10) {
               name = AddPlate10_5
               color = '#16a34a'
               countI = 0
-              startDistance = 3.5
+              startDistance = 2.8
               pastDistance = prePlate.distance
               if (!prePlate.plate) {
                 if (currentBp == 45 || currentBp == 35 || currentBp == 25) {
-                  startDistance = 3.8
+                  startDistance = 2.8
                 }
                 else if (currentBp == 10) {
-                  startDistance = 1.8
+                  startDistance = 1.3
                 }
               }
             }
@@ -120,20 +122,20 @@ function BarbellPlates(props) {
               color = '#3f3f46'
               if (prePlate.plate == 45 || prePlate.plate == 35 || prePlate.plate == 25) {
                 countI = 0
-                startDistance = 3.5
+                startDistance = 2.8
                 pastDistance = prePlate.distance
               }
               else if (prePlate.plate == 10) {
                 countI = 0
-                startDistance = 2.1
+                startDistance = 1.5
                 pastDistance = prePlate.distance
               }
               if (!prePlate.plate) {
                 if (currentBp == 45 || currentBp == 35 || currentBp == 25) {
-                  startDistance = 3.8
+                  startDistance = 2.8
                 }
                 else if (currentBp == 10) {
-                  startDistance = 1.8
+                  startDistance = 1.3
                 }
               }
             }
@@ -142,20 +144,20 @@ function BarbellPlates(props) {
               color = '#a1a1aa'
               if (prePlate.plate == 45 || prePlate.plate == 35 || prePlate.plate == 25) {
                 countI = 0
-                startDistance = 5.4
+                startDistance = 3.9
                 pastDistance = prePlate.distance
               }
               else if (prePlate.plate == 10 || prePlate.plate == 5) {
                 countI = 0
-                startDistance = 3.5
+                startDistance = 2.5
                 pastDistance = prePlate.distance
               }
               if (!prePlate.plate) {
                 if (currentBp == 45 || currentBp == 35 || currentBp == 25) {
-                  startDistance = 5.4
+                  startDistance = 3.9
                 }
                 else if (currentBp == 10 || currentBp == 5) {
-                  startDistance = 3.5
+                  startDistance = 2.5
                 }
               }
             }
@@ -169,13 +171,10 @@ function BarbellPlates(props) {
 
                 if (countI > 1) {
                   if (plate == 45 || plate == 35 || plate == 25) {
-                    innerDistance = 3.3
+                    innerDistance = 2.4
                   }
                   if (plate == 10 || plate == 5) {
-                    innerDistance = 2.1
-                  }
-                  if (plate == 2.5) {
-                    innerDistance = 2.1
+                    innerDistance = 1.5
                   }
                 }
 

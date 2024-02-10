@@ -33,7 +33,7 @@ function BarbellPlates(props) {
   //transform={" " + (props.barBell ? 'rotate(0)' : 'rotate(90)')}
 
   return (
-    <div className={'text-2xl p-2 bg-blue-300 row-span-2 md:row-span-3 rounded shadow flex justify-center ' + (props.barBell == true ? 'items-center' : 'items-end')}>
+    <div className={'text-2xl p-2 bg-blue-300 row-span-2 rounded shadow flex justify-center ' + (props.barBell ? ' items-center md:row-span-3 ' : ' items-end md:row-span-5 ')}>
 
       {/* SECTION Left Side*/}
       {(props.weight > 0 && !props.single) &&

@@ -31,7 +31,7 @@ function Stats(props) {
   }
 
   return (
-    <div className={'bg-blue-300 rounded shadow grid  p-2 sm:px-4 gap-2 sm:gap-4 row-span-1 md:row-span-2 ' + (props.single ? 'grid-cols-1' : 'grid-cols-2')}>
+    <div className={'bg-blue-300 rounded shadow grid  p-2 sm:px-4 gap-2 sm:gap-4 row-span-1 ' + (props.single ? ' grid-cols-1 ' : ' grid-cols-2 ') + (props.barBell ? ' md:row-span-2 ' : ' md:row-span-5 md:grid-cols-1 ')}>
 
       <div className=' bg-blue-50 rounded shadow p-6 py-2'>
         <ul className='flex h-full justify-center items-center'>
@@ -59,7 +59,7 @@ function Stats(props) {
       </div>
 
       {!props.single &&
-        <div className=' bg-blue-50 rounded shadow p-6 py-2'>
+        <div className=' bg-blue-50 rounded shadow p-6 py-2 '>
           <ul className='flex h-full justify-center items-center'>
             {plates.map((plate) => (
               <>

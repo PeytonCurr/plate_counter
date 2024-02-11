@@ -14,10 +14,10 @@ function WeightForm(props) {
         return
       }
     }
-    props.setWeight(event.target.value)
-    if (props.weight <= 45 && props.barBell == true) {
+    if (event.target.value < 45 && props.barBell == true) {
       props.setBarBell(false)
     }
+    props.setWeight(event.target.value)
   }
 
   return (
@@ -27,7 +27,7 @@ function WeightForm(props) {
         <h1 className='mb-2 text-center'>
           Enter Weight
         </h1>
-        <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} onChange={handleChange} className="text-center  w-full rounded p-1 px-2 border-2" />
+        <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center  w-full rounded p-1 px-2 border-2" />
       </form>
 
       <form className=' bg-blue-50 rounded shadow py-6 col-span-5 sm:col-span-2 text-center'>
@@ -36,6 +36,9 @@ function WeightForm(props) {
           props.setBarBell(e.target.checked)
           if (props.single == true) {
             props.setSingle(!e.target.checked)
+          }
+          if (props.weight < 45) {
+            props.setWeight(45)
           }
         }} />
       </form>

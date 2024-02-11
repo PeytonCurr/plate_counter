@@ -21,9 +21,9 @@ function WeightForm(props) {
   }
 
   return (
-    <div className='items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-3 px-4 py-3 sm:py-0'>
+    <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-3 px-4 py-3 ' + (!props.barBell && 'md:col-span-2')}>
 
-      <form onSubmit={handleSubmit} className=' bg-blue-50 rounded shadow p-4 pb-6 sm:p-6 sm:pt-4 col-span-10 sm:col-span-6 text-center'>
+      <form onSubmit={handleSubmit} className=' bg-blue-50 rounded shadow p-4 pb-6 sm:p-6 sm:pt-4 col-span-10 sm:col-span-6 text-center '>
         <h1 className='mb-2 text-center'>
           Enter Weight
         </h1>

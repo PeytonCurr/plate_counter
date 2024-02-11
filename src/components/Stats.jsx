@@ -31,7 +31,7 @@ function Stats(props) {
   }
 
   return (
-    <div className={'bg-blue-300 rounded shadow grid  p-2 sm:px-4 gap-2 sm:gap-4 row-span-1 ' + (props.single ? ' grid-cols-1 md:p-10 ' : ' grid-cols-2 ') + (props.barBell ? ' sm:row-span-2 ' : ' sm:row-span-5 md:grid-cols-1 ')}>
+    <div className={'bg-blue-300 rounded shadow grid  p-2 sm:px-4 gap-2 sm:gap-4 row-span-1 sm:row-span-2 ' + (props.single ? ' grid-cols-1 md:px-10 md:py-20 ' : ' grid-cols-2 ') + (props.barBell ? '  ' : ' md:row-span-5 md:grid-cols-1 ') + ((!props.single && !props.barBell) && ' md:py-4 ')}>
 
       <div className=' bg-blue-50 rounded shadow p-6 py-2'>
         <ul className='flex h-full justify-center items-center'>

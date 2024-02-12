@@ -30,14 +30,38 @@ function BarbellPlates(props) {
   let pastDistance = 0
   let pastDistanceLeft = 0
 
-  //transform={" " + (props.barBell ? 'rotate(0)' : 'rotate(90)')}
+  let tempPlates = 0
+  const [totalPlates, setTotalPlates] = useState(0)
+
+  useEffect(() => {
+    tempPlates = 0
+    if (window.innerWidth >= 768) {
+      plates.forEach(plate => {
+        tempPlates += props.counts[plate]
+      });
+      setTotalPlates(tempPlates)
+    }
+
+    function handleResize() {
+      tempPlates = 0
+      if (window.innerWidth >= 768) {
+        plates.forEach(plate => {
+          tempPlates += props.counts[plate]
+        });
+        setTotalPlates(tempPlates)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+  }, [props.counts])
 
   return (
-    <div className={'text-2xl p-2 bg-blue-300 row-span-2 sm:row-span-3 rounded shadow flex justify-center ' + (props.barBell ? ' items-center ' : ' items-end md:row-span-5 ')}>
+    <div className={'text-2xl p-2 bg-blue-300 row-span-2 sm:row-span-3 rounded shadow flex justify-center ' + (props.barBell ? ' items-center ' : ' items-end md:items-center md:row-span-5 ')}>
 
       {/* SECTION Left Side*/}
       {(props.weight > 0 && !props.single) &&
-        <div className='w-[6%] relative'>
+        <div className={`relative w-[6%] ` + (props.barBell ? ` ` : ` md:w-[12%] `)} style={{ top: `${totalPlates}vh` }}>
 
           {plates.map((plate) => {
             if (isBrokenLeft) {
@@ -218,7 +242,7 @@ function BarbellPlates(props) {
 
       {/* SECTION Right Side*/}
       {props.weight > 0 &&
-        <div className='w-[6%] relative'>
+        <div className={'w-[6%] relative ' + (props.barBell ? ' ' : 'md:w-[12%]')}>
 
           {plates.map((plate) => {
             if (isBroken) {

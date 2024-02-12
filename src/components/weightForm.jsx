@@ -14,6 +14,12 @@ function WeightForm(props) {
         return
       }
     }
+    else {
+      if (event.target.value > 1000) {
+        alert('1000 is the maximum weight that can be displayed on one side');
+        return
+      }
+    }
     if (event.target.value < 45 && props.barBell == true) {
       props.setBarBell(false)
     }

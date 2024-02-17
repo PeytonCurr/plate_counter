@@ -33,27 +33,38 @@ function BarbellPlates(props) {
   let tempPlates = 0
   const [totalPlates, setTotalPlates] = useState(0)
 
-  useEffect(() => {
+  function handleResize() {
     tempPlates = 0
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1280) {
+      plates.forEach(plate => {
+        tempPlates += props.counts[plate]
+      });
+      setTotalPlates(2 * tempPlates)
+    }
+    else if (window.innerWidth < 1280 && window.innerWidth >= 1024) {
+      plates.forEach(plate => {
+        tempPlates += props.counts[plate]
+      });
+      setTotalPlates(1.5 * tempPlates)
+    }
+    else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
       plates.forEach(plate => {
         tempPlates += props.counts[plate]
       });
       setTotalPlates(tempPlates)
     }
-
-    function handleResize() {
-      tempPlates = 0
-      if (window.innerWidth >= 768) {
-        plates.forEach(plate => {
-          tempPlates += props.counts[plate]
-        });
-        setTotalPlates(tempPlates)
-      }
+    else if (window.innerWidth < 768) {
+      setTotalPlates(0)
     }
+    if (props.barBell) {
+      setTotalPlates(0)
+    }
+  }
 
-    window.addEventListener('resize', handleResize)
+  window.addEventListener('resize', handleResize)
 
+  useEffect(() => {
+    handleResize()
   }, [props.counts])
 
   return (
@@ -242,7 +253,7 @@ function BarbellPlates(props) {
 
       {/* SECTION Right Side*/}
       {props.weight > 0 &&
-        <div className={'w-[6%] relative ' + (props.barBell ? ' ' : 'md:w-[12%]')}>
+        <div className={`relative w-[6%] ` + (props.barBell ? ` ` : ` md:w-[12%] `)} style={{ top: `${totalPlates}vh` }}>
 
           {plates.map((plate) => {
             if (isBroken) {

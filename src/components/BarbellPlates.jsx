@@ -68,7 +68,7 @@ function BarbellPlates(props) {
   }, [props.counts])
 
   return (
-    <div className={'text-2xl p-2 bg-blue-300 row-span-2 sm:row-span-3 rounded shadow flex justify-center ' + (props.barBell ? ' items-center ' : ' items-end md:items-center md:row-span-5 ')}>
+    <div className={'text-2xl p-2 bg-blue-300 rounded shadow flex justify-center ' + (props.barBell ? ' items-center ' : ' items-end md:items-center md:row-span-5 ') + (props.weight == 0 ? ' row-span-3 sm:row-span-5 md:col-span-2 ' : ' row-span-2 sm:row-span-3 ')}>
 
       {/* SECTION Left Side*/}
       {(props.weight > 0 && !props.single) &&

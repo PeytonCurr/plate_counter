@@ -32,36 +32,42 @@ function BarbellPlates(props) {
 
   let tempPlates = 0
   const [totalPlates, setTotalPlates] = useState(0)
+  let timeout = null
 
   function handleResize() {
     tempPlates = 0
-    if (window.innerWidth >= 1280) {
-      plates.forEach(plate => {
-        tempPlates += props.counts[plate]
-      });
-      setTotalPlates(2 * tempPlates)
-    }
-    else if (window.innerWidth < 1280 && window.innerWidth >= 1024) {
-      plates.forEach(plate => {
-        tempPlates += props.counts[plate]
-      });
-      setTotalPlates(1.5 * tempPlates)
-    }
-    else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
-      plates.forEach(plate => {
-        tempPlates += props.counts[plate]
-      });
-      setTotalPlates(tempPlates)
-    }
-    else if (window.innerWidth < 768) {
-      setTotalPlates(0)
-    }
     if (props.barBell) {
-      setTotalPlates(0)
+      if (totalPlates > 0) {
+        setTotalPlates(0)
+      }
+      return
+    }
+    else {
+      if (window.innerWidth < 768) {
+        setTotalPlates(0)
+        return
+      }
+
+      plates.forEach(plate => {
+        tempPlates += props.counts[plate]
+      });
+
+      if (window.innerWidth >= 1280) {
+        setTotalPlates(2 * tempPlates)
+      }
+      else if (window.innerWidth < 1280 && window.innerWidth >= 1024) {
+        setTotalPlates(1.5 * tempPlates)
+      }
+      else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
+        setTotalPlates(tempPlates)
+      }
     }
   }
 
-  window.addEventListener('resize', handleResize)
+  window.addEventListener('resize', () => {
+    clearTimeout(timeout)
+    timeout = setTimeout(handleResize, 50)
+  })
 
   useEffect(() => {
     handleResize()

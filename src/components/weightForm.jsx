@@ -38,7 +38,7 @@ function WeightForm(props) {
 
       <form className=' bg-blue-50 rounded shadow py-6 col-span-5 sm:col-span-2 text-center'>
         <h1 className='mb-3'>45lb Barbell?</h1>
-        <input className="mb-2" type="checkbox" checked={props.barBell} onChange={e => {
+        <input className="mb-2 toggle toggle-info" type="checkbox" checked={props.barBell} onChange={e => {
           props.setBarBell(e.target.checked)
           if (props.single == true) {
             props.setSingle(!e.target.checked)
@@ -51,7 +51,7 @@ function WeightForm(props) {
 
       <form className=' bg-blue-50 rounded shadow py-6 col-span-5 sm:col-span-2 text-center'>
         <h1 className='mb-3'>Single Side?</h1>
-        <input className="mb-2" type="checkbox" checked={props.single} onChange={e => {
+        <input className="mb-2 toggle toggle-info" type="checkbox" checked={props.single} onChange={e => {
           if (!props.single) {
             if (props.weight > 500) {
               alert('500 is the maximum weight that can be displayed on one side');

@@ -1,7 +1,25 @@
+import { mdiAlphaXCircleOutline } from "@mdi/js";
+import Icon from "@mdi/react";
 import React from "react";
+import toast from "react-hot-toast";
 
 
 function WeightForm(props) {
+
+  function notify(message) {
+    toast(
+      <div className="alert alert-error">
+        <Icon path={mdiAlphaXCircleOutline} size={1} color="red" rotate={0} />
+        <span>{message}</span>
+      </div>
+      , {
+        style: {
+          padding: '0px',
+          background: 'none',
+          boxShadow: 'none'
+        }, duration: 3000,
+      })
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -10,13 +28,13 @@ function WeightForm(props) {
   function handleChange(event) {
     if (props.single) {
       if (event.target.value > 500) {
-        alert('500 is the maximum weight that can be displayed on one side');
+        notify('500 is the maximum weight that can be displayed on one side');
         return
       }
     }
     else {
       if (event.target.value > 1000) {
-        alert('1000 is the maximum weight that can be displayed on one side');
+        notify('1000 is the maximum weight that can be displayed on one side');
         return
       }
     }
@@ -33,7 +51,7 @@ function WeightForm(props) {
         <h1 className='mb-2 text-center'>
           Enter Weight
         </h1>
-        <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center  w-full rounded p-1 px-2 border-2" />
+        <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-full rounded p-1 px-2 border-2 text-white" />
       </form>
 
       <form className=' bg-blue-50 rounded shadow py-6 col-span-5 sm:col-span-2 text-center'>
@@ -54,7 +72,7 @@ function WeightForm(props) {
         <input className="mb-2 toggle toggle-info" type="checkbox" checked={props.single} onChange={e => {
           if (!props.single) {
             if (props.weight > 500) {
-              alert('500 is the maximum weight that can be displayed on one side');
+              notify('500 is the maximum weight that can be displayed on one side')
               return
             }
           }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar.jsx'
 import Stats from './components/Stats.jsx';
 import BarbellPlates from './components/BarbellPlates.jsx';
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
   }
 
   return (
-    <div className='bg-blue-100'>
+    <div className='bg-blue-100 text-black'>
       <Navbar />
       <section className={'grid grid-cols-1 grid-rows-5 sm:grid-rows-7 p-2 gap-2 bg-blue-100 ' + (!barBell && 'md:grid-cols-2')} style={{ height: "92vh" }}>
 
@@ -44,6 +45,11 @@ function App() {
         <WeightForm weight={weight} setWeight={setWeight} barBell={barBell} setBarBell={setBarBell} single={single} setSingle={setSingle} />
 
       </section>
+      <Toaster toastOptions={{
+        style: {
+          background: 'var(--fallback-er, oklch(var(--er)))/var(--tw-bg-opacity)))'
+        }
+      }} />
     </div >
   );
 }

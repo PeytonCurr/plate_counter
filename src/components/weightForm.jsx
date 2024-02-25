@@ -8,16 +8,16 @@ function WeightForm(props) {
 
   function notify(message) {
     toast(
-      <div className="alert alert-error">
-        <Icon path={mdiAlphaXCircleOutline} size={1} color="red" rotate={0} />
-        <span>{message}</span>
+      <div className="bg-error rounded-2xl p-4 pt-6 flex justify-center  align-middle items-center text-black">
+        <Icon path={mdiAlphaXCircleOutline} size={1} color="black" rotate={0} className="p-0 mb-1 me-2" />
+        <span className="p-0 mb-1">{message}</span>
       </div>
       , {
         style: {
           padding: '0px',
           background: 'none',
           boxShadow: 'none'
-        }, duration: 3000,
+        }, duration: 30000,
       })
   }
 
@@ -72,7 +72,7 @@ function WeightForm(props) {
         <input className="mb-2 toggle toggle-info" type="checkbox" checked={props.single} onChange={e => {
           if (!props.single) {
             if (props.weight > 500) {
-              notify('500 is the maximum weight that can be displayed on one side')
+              notify('500lbs is the  single-side maximum')
               return
             }
           }

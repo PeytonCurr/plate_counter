@@ -8,16 +8,16 @@ function WeightForm(props) {
 
   function notify(message) {
     toast(
-      <div className="bg-error rounded-2xl p-4 pt-6 flex justify-center  align-middle items-center text-black">
-        <Icon path={mdiAlphaXCircleOutline} size={1} color="black" rotate={0} className="p-0 mb-1 me-2" />
-        <span className="p-0 mb-1">{message}</span>
+      <div className="bg-error rounded-2xl p-4 pt-6 flex justify-center  align-middle items-center text-black shadow-2xl">
+        <Icon path={mdiAlphaXCircleOutline} size={1} color="black" rotate={0} className="p-0 mb-1 me-3" />
+        <span className="p-0 mb-1">{'Error! ' + message}</span>
       </div>
       , {
         style: {
           padding: '0px',
           background: 'none',
           boxShadow: 'none'
-        }, duration: 30000,
+        }, duration: 3000,
       })
   }
 
@@ -28,13 +28,13 @@ function WeightForm(props) {
   function handleChange(event) {
     if (props.single) {
       if (event.target.value > 500) {
-        notify('500 is the maximum weight that can be displayed on one side');
+        notify('500lbs is the single-side maximum');
         return
       }
     }
     else {
       if (event.target.value > 1000) {
-        notify('1000 is the maximum weight that can be displayed on one side');
+        notify('1000lbs is the maximum');
         return
       }
     }
@@ -54,9 +54,9 @@ function WeightForm(props) {
         <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-full rounded p-1 px-2 border-2 text-white" />
       </form>
 
-      <form className=' bg-blue-50 rounded shadow py-6 col-span-5 sm:col-span-2 text-center'>
+      <form className=' bg-blue-50 rounded shadow pt-6 pb-5 col-span-5 sm:col-span-2 text-center'>
         <h1 className='mb-3'>45lb Barbell?</h1>
-        <input className="mb-2 toggle toggle-info" type="checkbox" checked={props.barBell} onChange={e => {
+        <input className="mb-0 toggle toggle-info" type="checkbox" checked={props.barBell} onChange={e => {
           props.setBarBell(e.target.checked)
           if (props.single == true) {
             props.setSingle(!e.target.checked)
@@ -67,12 +67,12 @@ function WeightForm(props) {
         }} />
       </form>
 
-      <form className=' bg-blue-50 rounded shadow py-6 col-span-5 sm:col-span-2 text-center'>
+      <form className=' bg-blue-50 rounded shadow pt-6 pb-5 col-span-5 sm:col-span-2 text-center'>
         <h1 className='mb-3'>Single Side?</h1>
-        <input className="mb-2 toggle toggle-info" type="checkbox" checked={props.single} onChange={e => {
+        <input className="mb-0 toggle toggle-info" type="checkbox" checked={props.single} onChange={e => {
           if (!props.single) {
             if (props.weight > 500) {
-              notify('500lbs is the  single-side maximum')
+              notify('500lbs is the single-side maximum')
               return
             }
           }

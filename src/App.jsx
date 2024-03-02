@@ -45,11 +45,12 @@ function App() {
         <WeightForm weight={weight} setWeight={setWeight} barBell={barBell} setBarBell={setBarBell} single={single} setSingle={setSingle} />
 
       </section>
-      <Toaster toastOptions={{
+      <Toaster gutter={8} toastOptions={{
         style: {
-          background: 'var(--fallback-er, oklch(var(--er)))/var(--tw-bg-opacity)))'
+          background: ''
         }
-      }} />
+      }} containerStyle={{ top: '5px' }} containerClassName="" />
+
     </div >
   );
 }

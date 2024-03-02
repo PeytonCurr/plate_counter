@@ -7,8 +7,8 @@ import toast from "react-hot-toast";
 function WeightForm(props) {
 
   function notify(message) {
-    toast(
-      <div className="bg-error rounded-2xl p-4 pt-6 flex justify-center  align-middle items-center text-black shadow-2xl">
+    toast.custom(
+      <div className="bg-error rounded-2xl p-4 pt-6 md:p-6 md:pt-8 flex justify-center  align-middle items-center text-black shadow-lg" >
         <Icon path={mdiAlphaXCircleOutline} size={1} color="black" rotate={0} className="p-0 mb-1 me-3" />
         <span className="p-0 mb-1">{'Error! ' + message}</span>
       </div>

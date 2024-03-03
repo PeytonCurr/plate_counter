@@ -33,7 +33,7 @@ function Stats(props) {
   return (
     <div className={'bg-blue-300 rounded shadow grid p-2 sm:px-4 gap-2 sm:gap-4 row-span-1 sm:row-span-2 ' + (props.single ? ' grid-cols-1 pb-3 md:pb-6 md:pt-4 stack items-center ' : ' grid-cols-2 ') + (props.barBell ? '  ' : ' md:row-span-5 md:grid-cols-1 ') + ((!props.single && !props.barBell) && ' md:py-4 ')}>
 
-      <div className=' bg-blue-50 rounded shadow p-6 py-2 h-full'>
+      <div className=' bg-slate-700 rounded shadow p-6 py-2 h-full'>
         <ul className='flex h-full justify-center items-center'>
           {plates.map((plate) => (
             <>
@@ -42,7 +42,7 @@ function Stats(props) {
                   <div className='text-center'>
                     <p
                       className={
-                        'border-2 rounded-full p-2 text-xs sm:text-base '
+                        'text-black border-2 rounded-full p-2 text-xs sm:text-base '
                         + (plate == 45 && ' px-2 sm:px-2.5 border-red-600 bg-red-100 ') + (plate == 35 && ' px-2 sm:px-2.5 border-blue-600 bg-blue-100 ') + (plate == 25 && ' px-2 sm:px-2.5 border-yellow-600 bg-yellow-100 ') + (plate == 10 && ' px-2.5 sm:px-3 border-green-600 bg-green-100 ') + (plate == 5 && ' px-3 sm:px-3.5 border-zinc-950 bg-zinc-400 ') + (plate == 2.5 && ' px-1.5 sm:px-2 border-gray-700 bg-gray-300 ')}>
                       {plate}
                     </p>
@@ -59,7 +59,7 @@ function Stats(props) {
       </div>
 
 
-      <div className={' bg-blue-50 rounded shadow p-6 py-2 h-full ' + (props.single && ' w-[103%] ')}>
+      <div className={' bg-slate-700 rounded shadow p-6 py-2 h-full ' + (props.single && ' w-[103%] ')}>
         <ul className='flex h-full justify-center items-center'>
           {plates.map((plate) => (
             <>
@@ -68,7 +68,7 @@ function Stats(props) {
                   <div className='text-center'>
                     <p
                       className={
-                        'border-2 rounded-full p-2 text-xs sm:text-base '
+                        'text-black border-2 rounded-full p-2 text-xs sm:text-base '
                         + (plate == 45 && ' px-2 sm:px-2.5 border-red-600 bg-red-100 ') + (plate == 35 && ' px-2 sm:px-2.5 border-blue-600 bg-blue-100 ') + (plate == 25 && ' px-2 sm:px-2.5 border-yellow-600 bg-yellow-100 ') + (plate == 10 && ' px-2.5 sm:px-3 border-green-600 bg-green-100 ') + (plate == 5 && ' px-3 sm:px-3.5 border-zinc-950 bg-zinc-400 ') + (plate == 2.5 && ' px-1.5 sm:px-2 border-gray-700 bg-gray-300 ')}>
                       {plate}
                     </p>

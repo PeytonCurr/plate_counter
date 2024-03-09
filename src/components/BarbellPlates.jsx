@@ -254,7 +254,7 @@ function BarbellPlates(props) {
         <div className='w-1/3'><BarBell /></div>
       }
       {(!props.barBell && !props.single) &&
-        <div className='w-1/3'></div>
+        <div className={'w-1/3  ' + (totalPlates ? ' divider divider-horizontal divider-neutral text-neutral ' : ' invisible ')}>L - R</div>
       }
 
       {/* SECTION Right Side*/}

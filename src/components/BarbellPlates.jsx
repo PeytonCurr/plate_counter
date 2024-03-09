@@ -74,10 +74,10 @@ function BarbellPlates(props) {
   }, [props.counts])
 
   return (
-    <div className={'text-2xl p-2 bg-blue-300 rounded shadow flex justify-center ' + (props.barBell ? ' items-center ' : ' items-end md:items-center md:row-span-5 ') + (props.weight == 0 ? ' row-span-3 sm:row-span-5 md:col-span-2 ' : ' row-span-2 sm:row-span-3 ')}>
+    <div className={'text-2xl p-2 bg-blue-300 rounded shadow flex justify-center ' + (props.barBell ? ' items-center ' : ' items-end md:items-center md:row-span-5 ') + ((props.weight > 0 && props.weight % 5 == 0) ? ' row-span-2 sm:row-span-3 ' : ' row-span-3 sm:row-span-5 md:col-span-2 ')}>
 
       {/* SECTION Left Side*/}
-      {(props.weight > 0 && !props.single) &&
+      {(props.weight > 0 && !props.single && props.weight % 5 == 0) &&
         <div className={`relative w-[6%] ` + (props.barBell ? ` ` : ` md:w-[12%] `)} style={{ top: `${totalPlates}vh` }}>
 
           {plates.map((plate) => {
@@ -258,7 +258,7 @@ function BarbellPlates(props) {
       }
 
       {/* SECTION Right Side*/}
-      {props.weight > 0 &&
+      {(props.weight > 0 && props.weight % 5 == 0) &&
         <div className={`relative w-[6%] ` + (props.barBell ? ` ` : ` md:w-[12%] `)} style={{ top: `${totalPlates}vh` }}>
 
           {plates.map((plate) => {

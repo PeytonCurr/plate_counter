@@ -34,7 +34,9 @@ function Stats(props) {
     <div className={'bg-blue-300 rounded shadow grid p-2 sm:px-4 gap-2 sm:gap-4 row-span-1 sm:row-span-2 ' + (props.single ? ' grid-cols-1 pb-3 md:pb-6 md:pt-4 stack items-center ' : ' grid-cols-2 ') + (props.barBell ? '  ' : ' md:row-span-5 md:grid-cols-1 ') + ((!props.single && !props.barBell) && ' md:py-4 ')}>
 
       <div className=' bg-slate-700 rounded shadow p-6 py-2 h-full'>
-        <div className='fixed pt-1 ' >L</div>
+        {!props.single &&
+          <div className='fixed pt-1 ' >L</div>
+        }
         <ul className='flex h-full justify-center items-center'>
           {plates.map((plate) => (
             <>

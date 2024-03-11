@@ -66,7 +66,7 @@ function Stats(props) {
 
       {props.barBell &&
         <div className='bg-slate-700 py-2 col-span-1 flex flex-col justify-center items-center text-center '>
-          <div className='w-full my-3 tooltip tooltip-open tooltip-error' data-tip="45">
+          <div className='w-full my-3 tooltip tooltip-open' data-tip="45">
             <SmallBarBell />
           </div>
           <p className='text-xs sm:text-base'> x </p>

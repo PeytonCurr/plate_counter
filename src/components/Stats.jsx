@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import SmallBarBell from './svgs/SmallBarBell.jsx';
 
 function Stats(props) {
 
@@ -34,7 +35,7 @@ function Stats(props) {
     <div className={'bg-blue-300 rounded shadow grid p-2 sm:px-4 row-span-1 sm:row-span-2 ' + (props.single ? ' grid-cols-1 pb-3 md:pb-6 md:pt-4 stack items-center ' : '  ') + (props.barBell ? ' grid-cols-5 ' : ' md:row-span-5 grid-cols-2 md:grid-cols-1 gap-2 sm:gap-4 ') + ((!props.single && !props.barBell) && ' md:py-4 ')}>
 
 
-      <div className={' bg-slate-700 p-6 py-2 h-full' + (props.barBell ? ' col-span-2 rounded-l ' : ' shadow rounded ')}>
+      <div className={' bg-slate-700 p-6 py-2 h-full' + (props.barBell ? ' col-span-2 rounded-l pr-2 md:pr-6 ' : ' shadow rounded ')}>
         {(!props.single && !props.barBell) &&
           <div className='fixed pt-1 ' >L</div>
         }
@@ -64,11 +65,18 @@ function Stats(props) {
 
 
       {props.barBell &&
-        <div className='bg-slate-700 py-2 h-full col-span-1 text-center flex justify-center items-center'>This is going to be the barbell</div>
+        <div className='bg-slate-700 py-2 col-span-1 flex flex-col justify-center items-center text-center'>
+          <p className=''>45</p>
+          <div className='w-full mb-1.5'>
+            <SmallBarBell />
+          </div>
+          <p className='text-xs sm:text-base'> x </p>
+          <p className='text-xs sm:text-base'>1</p>
+        </div>
       }
 
 
-      <div className={' bg-slate-700 p-6 py-2 h-full ' + (props.single && ' w-[103%] ') + (props.barBell ? ' col-span-2 rounded-r ' : ' shadow rounded ')}>
+      <div className={' bg-slate-700 p-6 py-2 h-full ' + (props.single && ' w-[103%] ') + (props.barBell ? ' col-span-2 rounded-r pl-2 md:pl-6 ' : ' shadow rounded ')}>
         {(!props.single && !props.barBell) &&
           <div className='fixed pt-1' >R</div>
         }

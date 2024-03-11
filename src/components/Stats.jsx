@@ -37,7 +37,7 @@ function Stats(props) {
 
       <div className={' bg-slate-700 py-2 h-full' + (props.barBell ? ' col-span-2 rounded-l pr-2 md:pr-6 ' : ' shadow rounded px-2 sm:px-6 ')}>
         {(!props.single && !props.barBell) &&
-          <div className='fixed ps-1 sm:ps-0 sm:pt-1 ' >L</div>
+          <div className='absolute ps-1 sm:ps-0 sm:pt-1 ' >L</div>
         }
         <ul className={'flex h-full items-center ' + (props.barBell ? ' flex-row-reverse justify-start ' : ' justify-center ')}>
           {plates.map((plate) => (
@@ -77,7 +77,7 @@ function Stats(props) {
 
       <div className={' bg-slate-700 py-2 h-full ' + (props.single && ' w-[103%] ') + (props.barBell ? ' col-span-2 rounded-r pl-2 md:pl-6 ' : ' shadow rounded px-2 sm:px-6 ')}>
         {(!props.single && !props.barBell) &&
-          <div className='fixed ps-1 sm:ps-0 sm:pt-1' >R</div>
+          <div className='absolute ps-1 sm:ps-0 sm:pt-1' >R</div>
         }
         <ul className={'flex h-full items-center ' + (props.barBell ? ' justify-start ' : ' justify-center ')}>
           {plates.map((plate) => (

@@ -47,11 +47,11 @@ function WeightForm(props) {
   return (
     <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-3 px-4 py-3 ' + (!props.barBell && 'md:col-span-2')}>
 
-      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow p-4 pb-6 sm:p-4 sm:pt-2 col-span-10 sm:col-span-6 text-lg '>
-        <h1 className='mb-2 text-center text-white font-bold text-shadow-sm shadow-info ' >
-          Enter Weight
+      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow p-4 col-span-10 sm:col-span-6 text-lg h-full flex items-center '>
+        <h1 className='text-center text-white font-bold text-shadow-sm shadow-info me-2 ' >
+          Weight:
         </h1>
-        <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-full rounded text-white input" />
+        <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-full rounded text-white input me-2 " />
       </form>
 
       <form className=' bg-slate-700 rounded shadow pt-6 pb-5 col-span-5 sm:col-span-2 text-center'>

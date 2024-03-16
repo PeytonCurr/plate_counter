@@ -1,10 +1,12 @@
 import { mdiAlphaXCircleOutline } from "@mdi/js";
 import Icon from "@mdi/react";
-import React from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 
 function WeightForm(props) {
+
+  const [scroll, setScroll] = useState(true)
 
   function notify(message) {
     toast.custom(
@@ -45,13 +47,46 @@ function WeightForm(props) {
   }
 
   return (
-    <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-3 px-4 py-3 ' + (!props.barBell && 'md:col-span-2')}>
+    <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-1 sm:gap-3 px-2 sm:px-4 py-1 sm:py-3 ' + (!props.barBell && 'md:col-span-2')}>
 
-      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow p-4 col-span-10 sm:col-span-6 text-lg h-full flex items-center '>
-        <h1 className='text-center text-white font-bold text-shadow-sm shadow-info me-2 ' >
-          Weight:
-        </h1>
-        <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-full rounded text-white input me-2 " />
+      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-4 py-1 sm:pb-2 col-span-10 sm:col-span-6 text-lg h-full flex '>
+
+        {/*Left Side*/}
+        <div className="h-full grid grid-rows-5">
+          <div className="row-span-1"></div>
+          <h1 className='text-white font-bold text-shadow-sm shadow-info me-2 flex items-center row-span-2 ' >
+            Weight:
+          </h1>
+          <div className="text-center me-2 row-span-2 shadow rounded-sm bg-slate-500 flex flex-col justify-around items-center sm:p-1.5">
+            <span className="text-sm text-white font-bold text-shadow-sm shadow-info">
+              Scroll?
+            </span>
+            <input className="mb-0 toggle toggle-sm toggle-info " type="checkbox" checked={scroll} onChange={e => { setScroll(e.target.checked) }} />
+          </div>
+        </div>
+
+        {/*Right Side*/}
+
+        {!scroll &&
+          <div className="h-full w-full grid grid-rows-5" >
+            <div className="row-span-1"></div>
+            <div className="row-span-2 flex items-center">
+              <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-full rounded text-white input me-2" />
+            </div>
+            <div className="row-span-2"></div>
+          </div>
+        }
+        {scroll &&
+          <div className="h-full w-full grid grid-rows-5">
+
+            <div className="row-span-4 flex items-center">
+              This is where the Scroll will be
+            </div>
+
+            <div className="row-span-1"></div>
+          </div>
+        }
+
       </form>
 
       <form className=' bg-slate-700 rounded shadow pt-6 pb-5 col-span-5 sm:col-span-2 text-center'>

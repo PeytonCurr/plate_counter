@@ -80,7 +80,42 @@ function WeightForm(props) {
           <div className="h-full w-full grid grid-rows-5">
 
             <div className="row-span-4 flex flex-col  justify-center">
-              <div className="grid grid-cols-3 text-center h-full">
+              <div className="grid grid-cols-3 text-center h-full p-2 px-4">
+
+                <div className="h-full carousel carousel-vertical carousel-center p-4 bg-neutral rounded-box text-5xl border border-end">
+                  <div className="carousel-item invisible text-xl">0</div>
+                  <div className="carousel-item border-b border-1/2 w-full flex justify-center py-0.5">
+                    0
+                  </div>
+                  <div className="carousel-item border-b w-full flex justify-center py-0.5">
+                    1
+                  </div>
+                  <div className="carousel-item border-b w-full flex justify-center py-0.5">
+                    2
+                  </div>
+                  <div className="carousel-item">
+                    3
+                  </div>
+                  <div className="carousel-item">
+                    4
+                  </div>
+                  <div className="carousel-item">
+                    5
+                  </div>
+                  <div className="carousel-item">
+                    6
+                  </div>
+                  <div className="carousel-item">
+                    7
+                  </div>
+                  <div className="carousel-item">
+                    8
+                  </div>
+                  <div className="carousel-item">
+                    9
+                  </div>
+                  <div className="carousel-item invisible text-xl">9</div>
+                </div>
 
                 <div className="h-full carousel carousel-vertical carousel-center p-4 bg-neutral rounded-box items-center text-5xl">
                   <div className="carousel-item invisible text-xl">0</div>
@@ -114,12 +149,43 @@ function WeightForm(props) {
                   <div className="carousel-item">
                     9
                   </div>
-                  <div className="carousel-item invisible text-xl">0</div>
-
+                  <div className="carousel-item invisible text-xl">9</div>
                 </div>
 
-                <div>Col 2</div>
-                <div>Col 3</div>
+                <div className="h-full carousel carousel-vertical carousel-center p-4 bg-neutral rounded-box items-center text-5xl">
+                  <div className="carousel-item invisible text-xl">0</div>
+                  <div className="carousel-item">
+                    0
+                  </div>
+                  <div className="carousel-item">
+                    1
+                  </div>
+                  <div className="carousel-item">
+                    2
+                  </div>
+                  <div className="carousel-item">
+                    3
+                  </div>
+                  <div className="carousel-item">
+                    4
+                  </div>
+                  <div className="carousel-item">
+                    5
+                  </div>
+                  <div className="carousel-item">
+                    6
+                  </div>
+                  <div className="carousel-item">
+                    7
+                  </div>
+                  <div className="carousel-item">
+                    8
+                  </div>
+                  <div className="carousel-item">
+                    9
+                  </div>
+                  <div className="carousel-item invisible text-xl">9</div>
+                </div>
 
               </div>
             </div>

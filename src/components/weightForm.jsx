@@ -79,8 +79,49 @@ function WeightForm(props) {
         {scroll &&
           <div className="h-full w-full grid grid-rows-5">
 
-            <div className="row-span-4 flex items-center">
-              This is where the Scroll will be
+            <div className="row-span-4 flex flex-col  justify-center">
+              <div className="grid grid-cols-3 text-center h-full">
+
+                <div className="h-full carousel carousel-vertical carousel-center p-4 bg-neutral rounded-box items-center text-5xl">
+                  <div className="carousel-item invisible text-xl">0</div>
+                  <div className="carousel-item">
+                    0
+                  </div>
+                  <div className="carousel-item">
+                    1
+                  </div>
+                  <div className="carousel-item">
+                    2
+                  </div>
+                  <div className="carousel-item">
+                    3
+                  </div>
+                  <div className="carousel-item">
+                    4
+                  </div>
+                  <div className="carousel-item">
+                    5
+                  </div>
+                  <div className="carousel-item">
+                    6
+                  </div>
+                  <div className="carousel-item">
+                    7
+                  </div>
+                  <div className="carousel-item">
+                    8
+                  </div>
+                  <div className="carousel-item">
+                    9
+                  </div>
+                  <div className="carousel-item invisible text-xl">0</div>
+
+                </div>
+
+                <div>Col 2</div>
+                <div>Col 3</div>
+
+              </div>
             </div>
 
             <div className="row-span-1"></div>

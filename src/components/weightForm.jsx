@@ -55,36 +55,70 @@ function WeightForm(props) {
   return (
     <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-1 sm:gap-3 px-2 sm:px-4 py-1 sm:py-3 ' + (!props.barBell && 'md:col-span-2')}>
 
-      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-4 py-1 sm:pb-2 col-span-10 sm:col-span-6 text-lg h-full flex '>
+      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-2 sm:px-3 py-1 sm:pb-2 col-span-10 sm:col-span-6 text-lg h-full flex '>
 
         {/*Left Side*/}
-        <div className="h-full grid grid-rows-4">
-          <div className="row-span-1"></div>
-          <div className="text-center me-2 row-span-2 shadow rounded-sm bg-slate-500 flex flex-col justify-around items-center sm:p-1.5">
+        <div className="h-full grid grid-rows-4 sm:grid-rows-7">
+          <div className="row-span-1 sm:row-span-2"></div>
+          <div className="text-center row-span-2 sm:row-span-3 shadow rounded-sm bg-slate-500 flex flex-col justify-around items-center p-1.5">
             <span className="text-sm text-white font-bold text-shadow-sm shadow-info">
               Enter?
             </span>
             <input className="mb-0 toggle toggle-sm toggle-info " type="checkbox" checked={enter} onChange={e => { setEnter(e.target.checked) }} />
           </div>
-          <div className="row-span-1"></div>
+          <div className="row-span-1 sm:row-span-2"></div>
         </div>
 
+        <div className="divider divider-horizontal divider-neutral m-1"></div>
+
         {/*Right Side*/}
-
-        {enter &&
-          <div className="h-full w-full grid grid-rows-5" >
+        <div className="row-span-2 flex items-center w-full">
+          <div className="h-full grid grid-rows-8">
             <div className="row-span-1"></div>
-            <div className="row-span-2 flex items-center">
-              <h1 className='text-white font-bold text-shadow-sm shadow-info me-2 flex items-center' >
-                Weight:
-              </h1>
-              <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-full rounded text-white input me-2" />
-            </div>
             <div className="row-span-2"></div>
+            <h1 className='text-white font-bold text-shadow-sm shadow-info row-span-2 flex items-center' >
+              Weight:
+            </h1>
+            <div className="row-span-2"></div>
+            <div className="row-span-1"></div>
           </div>
-        }
 
-        {!enter &&
+          {enter &&
+            <div className="h-full w-full grid grid-rows-8">
+              <div className="row-span-1"></div>
+              <div className="row-span-2"></div>
+              <div className="flex justify-center row-span-2">
+                <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-11/12 rounded text-white bg-base-300" />
+              </div>
+              <div className="row-span-2"></div>
+              <div className="row-span-1"></div>
+            </div>
+          }
+          {!enter &&
+            <div className="h-full w-full grid grid-rows-8">
+              <div className="row-span-1 grid grid-col-3"></div>
+              <div className="row-span-2 grid grid-col-3">
+                <div className="text-5xl col-span-1">0</div>
+                <div className="text-5xl col-span-1">0</div>
+                <div className="text-5xl col-span-1">0</div>
+              </div>
+              <div className="row-span-2 grid grid-col-3">
+                <div className="text-5xl col-span-1">1</div>
+                <div className="text-5xl col-span-1">1</div>
+                <div className="text-5xl col-span-1">1</div>
+              </div>
+              <div className="row-span-2 grid grid-col-3">
+                <div className="text-5xl col-span-1">2</div>
+                <div className="text-5xl col-span-1">2</div>
+                <div className="text-5xl col-span-1">2</div>
+              </div>
+              <div className="row-span-1 grid grid-col-3"></div>
+            </div>
+          }
+
+        </div>
+
+        {/*!enter &&
           <div className="h-full w-full grid grid-rows-5">
 
             <div className="row-span-4 flex flex-col  justify-center">
@@ -177,7 +211,7 @@ function WeightForm(props) {
 
             <div className="row-span-1"></div>
           </div>
-        }
+      */}
 
       </form>
 

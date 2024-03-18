@@ -6,7 +6,13 @@ import toast from "react-hot-toast";
 
 function WeightForm(props) {
 
-  const [scroll, setScroll] = useState(true)
+  const [enter, setEnter] = useState(false)
+
+  const [scrollCounts, setScrollCounts] = useState({
+    1: 0,
+    2: 0,
+    3: 0,
+  })
 
   function notify(message) {
     toast.custom(
@@ -52,31 +58,33 @@ function WeightForm(props) {
       <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-4 py-1 sm:pb-2 col-span-10 sm:col-span-6 text-lg h-full flex '>
 
         {/*Left Side*/}
-        <div className="h-full grid grid-rows-5">
+        <div className="h-full grid grid-rows-4">
           <div className="row-span-1"></div>
-          <h1 className='text-white font-bold text-shadow-sm shadow-info me-2 flex items-center row-span-2 ' >
-            Weight:
-          </h1>
           <div className="text-center me-2 row-span-2 shadow rounded-sm bg-slate-500 flex flex-col justify-around items-center sm:p-1.5">
             <span className="text-sm text-white font-bold text-shadow-sm shadow-info">
-              Scroll?
+              Enter?
             </span>
-            <input className="mb-0 toggle toggle-sm toggle-info " type="checkbox" checked={scroll} onChange={e => { setScroll(e.target.checked) }} />
+            <input className="mb-0 toggle toggle-sm toggle-info " type="checkbox" checked={enter} onChange={e => { setEnter(e.target.checked) }} />
           </div>
+          <div className="row-span-1"></div>
         </div>
 
         {/*Right Side*/}
 
-        {!scroll &&
+        {enter &&
           <div className="h-full w-full grid grid-rows-5" >
             <div className="row-span-1"></div>
             <div className="row-span-2 flex items-center">
+              <h1 className='text-white font-bold text-shadow-sm shadow-info me-2 flex items-center' >
+                Weight:
+              </h1>
               <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-full rounded text-white input me-2" />
             </div>
             <div className="row-span-2"></div>
           </div>
         }
-        {scroll &&
+
+        {!enter &&
           <div className="h-full w-full grid grid-rows-5">
 
             <div className="row-span-4 flex flex-col  justify-center">
@@ -118,38 +126,15 @@ function WeightForm(props) {
                 </div>
 
                 <div className="h-full carousel carousel-vertical carousel-center p-4 bg-neutral rounded-box items-center text-5xl">
-                  <div className="carousel-item invisible text-xl">0</div>
-                  <div className="carousel-item">
+                  <div className="carousel-item border-b border-1/2 w-full flex justify-center py-0.5">
                     0
                   </div>
-                  <div className="carousel-item">
+                  <div className="carousel-item border-b w-full flex justify-center py-0.5">
                     1
                   </div>
-                  <div className="carousel-item">
+                  <div className="carousel-item border-b w-full flex justify-center py-0.5">
                     2
                   </div>
-                  <div className="carousel-item">
-                    3
-                  </div>
-                  <div className="carousel-item">
-                    4
-                  </div>
-                  <div className="carousel-item">
-                    5
-                  </div>
-                  <div className="carousel-item">
-                    6
-                  </div>
-                  <div className="carousel-item">
-                    7
-                  </div>
-                  <div className="carousel-item">
-                    8
-                  </div>
-                  <div className="carousel-item">
-                    9
-                  </div>
-                  <div className="carousel-item invisible text-xl">9</div>
                 </div>
 
                 <div className="h-full carousel carousel-vertical carousel-center p-4 bg-neutral rounded-box items-center text-5xl">

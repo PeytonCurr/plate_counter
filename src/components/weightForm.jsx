@@ -95,7 +95,7 @@ function WeightForm(props) {
             </div>
           }
           {!enter &&
-            <div className="h-full w-full grid grid-rows-8 text-3xl">
+            <div className="h-full w-full grid grid-rows-8 text-3xl px-5">
               <div className="row-span-1 grid grid-col-3"></div>
               <div className="row-span-2 flex justify-around">
                 <div className="">0</div>

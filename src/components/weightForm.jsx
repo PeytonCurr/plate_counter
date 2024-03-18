@@ -95,22 +95,22 @@ function WeightForm(props) {
             </div>
           }
           {!enter &&
-            <div className="h-full w-full grid grid-rows-8">
+            <div className="h-full w-full grid grid-rows-8 text-3xl">
               <div className="row-span-1 grid grid-col-3"></div>
-              <div className="row-span-2 grid grid-col-3">
-                <div className="text-5xl col-span-1">0</div>
-                <div className="text-5xl col-span-1">0</div>
-                <div className="text-5xl col-span-1">0</div>
+              <div className="row-span-2 flex justify-around">
+                <div className="">0</div>
+                <div className="">0</div>
+                <div className="">0</div>
               </div>
-              <div className="row-span-2 grid grid-col-3">
-                <div className="text-5xl col-span-1">1</div>
-                <div className="text-5xl col-span-1">1</div>
-                <div className="text-5xl col-span-1">1</div>
+              <div className="row-span-2 flex justify-around">
+                <div className="">1</div>
+                <div className="">1</div>
+                <div className="">1</div>
               </div>
-              <div className="row-span-2 grid grid-col-3">
-                <div className="text-5xl col-span-1">2</div>
-                <div className="text-5xl col-span-1">2</div>
-                <div className="text-5xl col-span-1">2</div>
+              <div className="row-span-2 flex justify-around">
+                <div className="">2</div>
+                <div className="">2</div>
+                <div className="">2</div>
               </div>
               <div className="row-span-1 grid grid-col-3"></div>
             </div>

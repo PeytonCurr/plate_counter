@@ -55,7 +55,7 @@ function WeightForm(props) {
   return (
     <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-1 sm:gap-3 px-2 sm:px-4 py-1 sm:py-3 ' + (!props.barBell && 'md:col-span-2')}>
 
-      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-2 sm:px-3 py-1 sm:pb-2 col-span-10 sm:col-span-6 text-lg h-full flex '>
+      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-2 sm:py-2 sm:px-3 col-span-10 sm:col-span-6 text-lg h-full flex '>
 
         {/*Left Side*/}
         <div className="h-full grid grid-rows-4 sm:grid-rows-7">
@@ -76,7 +76,7 @@ function WeightForm(props) {
           <div className="h-full grid grid-rows-8">
             <div className="row-span-1"></div>
             <div className="row-span-2"></div>
-            <h1 className='text-white font-bold text-shadow-sm shadow-info row-span-2 flex items-center' >
+            <h1 className={'text-white font-bold text-shadow-sm shadow-info row-span-2 flex items-center text-sm ' + (enter && ' border-y ')}>
               Weight:
             </h1>
             <div className="row-span-2"></div>
@@ -95,22 +95,24 @@ function WeightForm(props) {
             </div>
           }
           {!enter &&
-            <div className="h-full w-full grid grid-rows-8 text-3xl px-5">
+            <div className="h-full w-full grid grid-rows-8 text-3xl ms-2">
               <div className="row-span-1 grid grid-col-3"></div>
-              <div className="row-span-2 flex justify-around">
-                <div className="">0</div>
-                <div className="">0</div>
-                <div className="">0</div>
-              </div>
-              <div className="row-span-2 flex justify-around">
-                <div className="">1</div>
-                <div className="">1</div>
-                <div className="">1</div>
-              </div>
-              <div className="row-span-2 flex justify-around">
-                <div className="">2</div>
-                <div className="">2</div>
-                <div className="">2</div>
+              <div className="row-span-6 grid gird-rows-6 bg-neutral rounded-box border-y-[.25px]">
+                <div className="row-span-1 flex justify-around mx-8">
+                  <div className="opacity-50 pb-1">0</div>
+                  <div className="opacity-50 pb-1">0</div>
+                  <div className="opacity-50 pb-1">0</div>
+                </div>
+                <div className="row-span-1 flex justify-around px-3 mx-5 border-y-2">
+                  <div className="pb-1">1</div>
+                  <div className="pb-1">1</div>
+                  <div className="pb-1">1</div>
+                </div>
+                <div className="row-span-1 flex justify-around mx-8">
+                  <div className="opacity-50 pb-1">2</div>
+                  <div className="opacity-50 pb-1">2</div>
+                  <div className="opacity-50 pb-1">2</div>
+                </div>
               </div>
               <div className="row-span-1 grid grid-col-3"></div>
             </div>

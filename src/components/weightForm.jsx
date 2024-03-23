@@ -1,4 +1,4 @@
-import { mdiAlphaXCircleOutline } from "@mdi/js";
+import { mdiAlphaXCircleOutline, mdiChevronDown, mdiChevronUp } from "@mdi/js";
 import Icon from "@mdi/react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
@@ -55,7 +55,7 @@ function WeightForm(props) {
   return (
     <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-1 sm:gap-3 px-2 sm:px-4 py-1 sm:py-3 ' + (!props.barBell && 'md:col-span-2')}>
 
-      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-2 sm:py-2 sm:px-3 col-span-10 sm:col-span-6 text-lg h-full flex '>
+      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-2 sm:px-3 col-span-10 sm:col-span-6 text-lg h-full flex '>
 
         {/*Left Side*/}
         <div className="h-full grid grid-rows-4 sm:grid-rows-7">
@@ -96,7 +96,24 @@ function WeightForm(props) {
           }
           {!enter &&
             <div className="h-full w-3/4 sm:w-full lg:w-3/4 grid grid-rows-9 ms-2">
-              <div className="row-span-1 grid grid-col-3"></div>
+              <div className="row-span-1 flex justify-around mx-8">
+                <div className="ms-10 sm:ms-0 md:ms-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                  <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
+                    <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
+                  </button>
+                </div>
+                <div className="h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                  <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
+                    <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
+                  </button>
+                </div>
+                <div className="me-10 sm:m-0 md:me-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                  <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
+                    <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
+                  </button>
+                </div>
+              </div>
+
               <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px]">
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
                   <div className="opacity-50 ms-10 sm:ms-0 md:ms-10">0</div>
@@ -114,7 +131,25 @@ function WeightForm(props) {
                   <div className="opacity-50 me-10 sm:me-0 md:me-10">2</div>
                 </div>
               </div>
-              <div className="row-span-1 grid grid-col-3"></div>
+
+
+              <div className="row-span-1 flex justify-around mx-8">
+                <div className="ms-10 sm:ms-0 md:ms-10 h-full w-[10%] sm:w-[20%] md:w-[10%]">
+                  <button className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
+                    <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
+                  </button>
+                </div>
+                <div className="h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                  <button className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
+                    <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
+                  </button>
+                </div>
+                <div className="me-10 sm:m-0 md:me-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                  <button className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
+                    <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
+                  </button>
+                </div>
+              </div>
             </div>
           }
 

@@ -72,7 +72,7 @@ function WeightForm(props) {
         <div className="divider divider-horizontal divider-neutral m-1"></div>
 
         {/*Right Side*/}
-        <div className="row-span-2 flex items-center w-full">
+        <div className="row-span-2 flex items-center justify-center w-full">
           <div className="h-full grid grid-rows-8">
             <div className="row-span-1"></div>
             <div className="row-span-2"></div>
@@ -95,23 +95,23 @@ function WeightForm(props) {
             </div>
           }
           {!enter &&
-            <div className="h-full w-full grid grid-rows-8 text-3xl ms-2">
+            <div className="h-full w-3/4 sm:w-full lg:w-3/4 grid grid-rows-9 ms-2">
               <div className="row-span-1 grid grid-col-3"></div>
-              <div className="row-span-6 grid gird-rows-6 bg-neutral rounded-box border-y-[.25px]">
-                <div className="row-span-1 flex justify-around mx-8">
-                  <div className="opacity-50 pb-1">0</div>
-                  <div className="opacity-50 pb-1">0</div>
-                  <div className="opacity-50 pb-1">0</div>
+              <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px]">
+                <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
+                  <div className="opacity-50 ms-10 sm:ms-0 md:ms-10">0</div>
+                  <div className="opacity-50">0</div>
+                  <div className="opacity-50 me-10 sm:me-0 md:me-10">0</div>
                 </div>
-                <div className="row-span-1 flex justify-around px-3 mx-5 border-y-2">
-                  <div className="pb-1">1</div>
-                  <div className="pb-1">1</div>
-                  <div className="pb-1">1</div>
+                <div className="row-span-1 flex justify-around px-2 mx-5 border-y-[1.5px] text-xl sm:text-2xl">
+                  <div className="ms-11 sm:ms-0 md:ms-11">1</div>
+                  <div className="">1</div>
+                  <div className="me-11 sm:me-0 md:me-11">1</div>
                 </div>
-                <div className="row-span-1 flex justify-around mx-8">
-                  <div className="opacity-50 pb-1">2</div>
-                  <div className="opacity-50 pb-1">2</div>
-                  <div className="opacity-50 pb-1">2</div>
+                <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
+                  <div className="opacity-50 ms-10 sm:ms-0 md:ms-10">2</div>
+                  <div className="opacity-50">2</div>
+                  <div className="opacity-50 me-10 sm:me-0 md:me-10">2</div>
                 </div>
               </div>
               <div className="row-span-1 grid grid-col-3"></div>
@@ -119,101 +119,6 @@ function WeightForm(props) {
           }
 
         </div>
-
-        {/*!enter &&
-          <div className="h-full w-full grid grid-rows-5">
-
-            <div className="row-span-4 flex flex-col  justify-center">
-              <div className="grid grid-cols-3 text-center h-full p-2 px-4">
-
-                <div className="h-full carousel carousel-vertical carousel-center p-4 bg-neutral rounded-box text-5xl border border-end">
-                  <div className="carousel-item invisible text-xl">0</div>
-                  <div className="carousel-item border-b border-1/2 w-full flex justify-center py-0.5">
-                    0
-                  </div>
-                  <div className="carousel-item border-b w-full flex justify-center py-0.5">
-                    1
-                  </div>
-                  <div className="carousel-item border-b w-full flex justify-center py-0.5">
-                    2
-                  </div>
-                  <div className="carousel-item">
-                    3
-                  </div>
-                  <div className="carousel-item">
-                    4
-                  </div>
-                  <div className="carousel-item">
-                    5
-                  </div>
-                  <div className="carousel-item">
-                    6
-                  </div>
-                  <div className="carousel-item">
-                    7
-                  </div>
-                  <div className="carousel-item">
-                    8
-                  </div>
-                  <div className="carousel-item">
-                    9
-                  </div>
-                  <div className="carousel-item invisible text-xl">9</div>
-                </div>
-
-                <div className="h-full carousel carousel-vertical carousel-center p-4 bg-neutral rounded-box items-center text-5xl">
-                  <div className="carousel-item border-b border-1/2 w-full flex justify-center py-0.5">
-                    0
-                  </div>
-                  <div className="carousel-item border-b w-full flex justify-center py-0.5">
-                    1
-                  </div>
-                  <div className="carousel-item border-b w-full flex justify-center py-0.5">
-                    2
-                  </div>
-                </div>
-
-                <div className="h-full carousel carousel-vertical carousel-center p-4 bg-neutral rounded-box items-center text-5xl">
-                  <div className="carousel-item invisible text-xl">0</div>
-                  <div className="carousel-item">
-                    0
-                  </div>
-                  <div className="carousel-item">
-                    1
-                  </div>
-                  <div className="carousel-item">
-                    2
-                  </div>
-                  <div className="carousel-item">
-                    3
-                  </div>
-                  <div className="carousel-item">
-                    4
-                  </div>
-                  <div className="carousel-item">
-                    5
-                  </div>
-                  <div className="carousel-item">
-                    6
-                  </div>
-                  <div className="carousel-item">
-                    7
-                  </div>
-                  <div className="carousel-item">
-                    8
-                  </div>
-                  <div className="carousel-item">
-                    9
-                  </div>
-                  <div className="carousel-item invisible text-xl">9</div>
-                </div>
-
-              </div>
-            </div>
-
-            <div className="row-span-1"></div>
-          </div>
-      */}
 
       </form>
 

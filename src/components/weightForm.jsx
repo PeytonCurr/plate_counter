@@ -116,21 +116,19 @@ function WeightForm(props) {
 
               <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px]">
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
-
                   <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 ' + (scrollCounts['units'] - 1 < 0 && ' invisible ')}> {scrollCounts['units'] - 1} </div>
-                  <div className="opacity-50">{scrollCounts['tens'] - 1}</div>
-                  <div className="opacity-50 me-10 sm:me-0 md:me-10">{scrollCounts['hundreds'] - 1}</div>
-
+                  <div className={' opacity-50 ' + (scrollCounts['tens'] - 1 < 0 && ' invisible ')}>{scrollCounts['tens'] - 1}</div>
+                  <div className={' opacity-50 me-10 sm:me-0 md:me-10 ' + (scrollCounts['hundreds'] - 1 < 0 && ' invisible ')}>{scrollCounts['hundreds'] - 1}</div>
                 </div>
                 <div className="row-span-1 flex justify-around px-2 mx-5 border-y-[1.5px] text-xl sm:text-2xl">
-                  <div className="ms-11 sm:ms-0 md:ms-11">1</div>
-                  <div className="">1</div>
-                  <div className="me-11 sm:me-0 md:me-11">1</div>
+                  <div className="ms-11 sm:ms-0 md:ms-11">{scrollCounts['units']}</div>
+                  <div className="">{scrollCounts['tens']}</div>
+                  <div className="me-11 sm:me-0 md:me-11">{scrollCounts['hundreds']}</div>
                 </div>
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
-                  <div className="opacity-50 ms-10 sm:ms-0 md:ms-10">2</div>
-                  <div className="opacity-50">2</div>
-                  <div className="opacity-50 me-10 sm:me-0 md:me-10">2</div>
+                  <div className="opacity-50 ms-10 sm:ms-0 md:ms-10">{scrollCounts['units'] + 1}</div>
+                  <div className="opacity-50">{scrollCounts['tens'] + 1}</div>
+                  <div className="opacity-50 me-10 sm:me-0 md:me-10">{scrollCounts['hundreds'] + 1}</div>
                 </div>
               </div>
 

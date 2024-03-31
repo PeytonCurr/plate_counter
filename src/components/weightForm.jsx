@@ -9,8 +9,8 @@ function WeightForm(props) {
   const [enter, setEnter] = useState(false)
 
   const [scrollCounts, setScrollCounts] = useState({
-    'units': 0,
-    'tens': 0,
+    'units': 9,
+    'tens': 8,
     'hundreds': 0,
   })
 
@@ -126,9 +126,13 @@ function WeightForm(props) {
                   <div className="me-11 sm:me-0 md:me-11">{scrollCounts['hundreds']}</div>
                 </div>
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
-                  <div className="opacity-50 ms-10 sm:ms-0 md:ms-10">{scrollCounts['units'] + 1}</div>
-                  <div className="opacity-50">{scrollCounts['tens'] + 1}</div>
-                  <div className="opacity-50 me-10 sm:me-0 md:me-10">{scrollCounts['hundreds'] + 1}</div>
+                  <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 ' + (scrollCounts['units'] + 1 > 9 && ' invisible ')}>{scrollCounts['units'] + 1}</div>
+                  <div className={' opacity-50 ' + (scrollCounts['tens'] + 1 > 9 && ' invisible ')}>{scrollCounts['tens'] + 1}</div>
+                  {scrollCounts['hundreds'] + 1 > 9 ?
+                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 ' + (scrollCounts['hundreds'] + 1 > 9 && ' invisible ')}>{scrollCounts['hundreds'] + 1}</div>
+                    :
+                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 ' + (scrollCounts['hundreds'] + 1 > 9 && ' invisible ')}>{scrollCounts['hundreds']}</div>
+                  }
                 </div>
               </div>
 

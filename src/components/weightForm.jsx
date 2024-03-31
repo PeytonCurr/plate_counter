@@ -9,9 +9,9 @@ function WeightForm(props) {
   const [enter, setEnter] = useState(false)
 
   const [scrollCounts, setScrollCounts] = useState({
-    'units': 9,
+    'units': 0,
     'tens': 8,
-    'hundreds': 8,
+    'hundreds': 9,
   })
 
   function notify(message) {
@@ -116,26 +116,38 @@ function WeightForm(props) {
 
               <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px]">
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
-                  <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 ' + (scrollCounts['units'] - 1 < 0 && ' invisible ')}> {scrollCounts['units'] - 1} </div>
+                  {scrollCounts['units'] - 1 < 0 ?
+                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 invisible '}> {scrollCounts['units']} </div>
+                    :
+                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 '}> {scrollCounts['units'] - 1} </div>
+                  }
+
                   <div className={' opacity-50 ' + (scrollCounts['tens'] - 1 < 0 && ' invisible ')}>{scrollCounts['tens'] - 1}</div>
-                  <div className={' opacity-50 me-10 sm:me-0 md:me-10 ' + (scrollCounts['hundreds'] - 1 < 0 && ' invisible ')}>{scrollCounts['hundreds'] - 1}</div>
+
+                  {scrollCounts['hundreds'] - 1 < 0 ?
+                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['hundreds']}</div>
+                    :
+                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 '}>{scrollCounts['hundreds'] - 1}</div>
+                  }
                 </div>
                 <div className="row-span-1 flex justify-around px-2 mx-5 border-y-[1.5px] text-xl sm:text-2xl">
-                  <div className="ms-11 sm:ms-0 md:ms-11">{scrollCounts['units']}</div>
-                  <div className="">{scrollCounts['tens']}</div>
-                  <div className="me-11 sm:me-0 md:me-11">{scrollCounts['hundreds']}</div>
+                  <div className="ms-11 sm:ms-0 md:ms-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['units']}</div>
+                  <div className="text-white font-bold text-shadow-sm shadow-info">{scrollCounts['tens']}</div>
+                  <div className="me-11 sm:me-0 md:me-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['hundreds']}</div>
                 </div>
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
                   {scrollCounts['units'] + 1 > 9 ?
-                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 ' + (scrollCounts['units'] + 1 > 9 && ' invisible ')}>{scrollCounts['units']}</div>
+                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 invisible '}>{scrollCounts['units']}</div>
                     :
-                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 ' + (scrollCounts['units'] + 1 > 9 && ' invisible ')}>{scrollCounts['units'] + 1}</div>
+                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 '}>{scrollCounts['units'] + 1}</div>
                   }
+
                   <div className={' opacity-50 ' + (scrollCounts['tens'] + 1 > 9 && ' invisible ')}>{scrollCounts['tens'] + 1}</div>
+
                   {scrollCounts['hundreds'] + 1 > 9 ?
-                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 ' + (scrollCounts['hundreds'] + 1 > 9 && ' invisible ')}>{scrollCounts['hundreds']}</div>
+                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['hundreds']}</div>
                     :
-                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 ' + (scrollCounts['hundreds'] + 1 > 9 && ' invisible ')}>{scrollCounts['hundreds'] + 1}</div>
+                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 '}>{scrollCounts['hundreds'] + 1}</div>
                   }
                 </div>
               </div>

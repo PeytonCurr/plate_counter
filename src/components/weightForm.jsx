@@ -54,9 +54,36 @@ function WeightForm(props) {
 
   function translateWeight() {
     let strWeight = props.weight.toString()
-    let unitsCount = Number(strWeight[2])
-    let tensCount = Number(strWeight[1])
-    let hundredsCount = Number(strWeight[0])
+
+    let unitsCount = 0
+    let tensCount = 0
+    let hundredsCount = 0
+
+    if (strWeight[0] == null) {
+      unitsCount = 0
+      tensCount = 0
+      hundredsCount = 0
+    }
+    else {
+      if (strWeight[2] == null) {
+        if (strWeight[1] == null) {
+          unitsCount = Number(strWeight[0])
+          tensCount = 0
+          hundredsCount = 0
+        }
+        else {
+          unitsCount = Number(strWeight[1])
+          tensCount = Number(strWeight[0])
+          hundredsCount = 0
+        }
+      }
+      else {
+        unitsCount = Number(strWeight[2])
+        tensCount = Number(strWeight[1])
+        hundredsCount = Number(strWeight[0])
+      }
+    }
+
     setScrollCounts({ ...scrollCounts, 'units': unitsCount, 'tens': tensCount, 'hundreds': hundredsCount })
   }
 

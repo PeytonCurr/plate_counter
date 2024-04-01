@@ -1,6 +1,6 @@
 import { mdiAlphaXCircleOutline, mdiChevronDown, mdiChevronUp } from "@mdi/js";
 import Icon from "@mdi/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 
@@ -51,6 +51,18 @@ function WeightForm(props) {
     }
     props.setWeight(event.target.value)
   }
+
+  function translateWeight() {
+    let strWeight = props.weight.toString()
+    let unitsCount = Number(strWeight[2])
+    let tensCount = Number(strWeight[1])
+    let hundredsCount = Number(strWeight[0])
+    setScrollCounts({ ...scrollCounts, 'units': unitsCount, 'tens': tensCount, 'hundreds': hundredsCount })
+  }
+
+  useEffect(() => {
+    translateWeight()
+  }, [props.weight])
 
   return (
     <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-1 sm:gap-3 px-2 sm:px-4 py-1 sm:py-3 ' + (!props.barBell && 'md:col-span-2')}>
@@ -117,37 +129,37 @@ function WeightForm(props) {
               <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px]">
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
                   {scrollCounts['hundreds'] - 1 < 0 ?
-                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 invisible '}> {scrollCounts['hundreds']} </div>
+                    <div className={' opacity-30 ms-10 sm:ms-0 md:ms-10 invisible '}> {scrollCounts['hundreds']} </div>
                     :
-                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 '}> {scrollCounts['hundreds'] - 1} </div>
+                    <div className={' opacity-30 ms-10 sm:ms-0 md:ms-10 '}> {scrollCounts['hundreds'] - 1} </div>
                   }
 
-                  <div className={' opacity-50 ' + (scrollCounts['tens'] - 1 < 0 && ' invisible ')}>{scrollCounts['tens'] - 1}</div>
+                  <div className={' opacity-30 ' + (scrollCounts['tens'] - 1 < 0 && ' invisible ')}>{scrollCounts['tens'] - 1}</div>
 
                   {scrollCounts['units'] - 1 < 0 ?
-                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['units']}</div>
+                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['units']}</div>
                     :
-                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 '}>{scrollCounts['units'] - 1}</div>
+                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 '}>{scrollCounts['units'] - 1}</div>
                   }
                 </div>
-                <div className="row-span-1 flex justify-around px-2 mx-5 border-y-[1.5px] text-xl sm:text-2xl">
+                <div className="row-span-1 flex justify-around px-2 mx-5 border-y-[1.5px] text-xl sm:text-2xl bg-base-200 rounded">
                   <div className="ms-11 sm:ms-0 md:ms-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['hundreds']}</div>
                   <div className="text-white font-bold text-shadow-sm shadow-info">{scrollCounts['tens']}</div>
                   <div className="me-11 sm:me-0 md:me-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['units']}</div>
                 </div>
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
                   {scrollCounts['hundreds'] + 1 > 9 ?
-                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 invisible '}>{scrollCounts['hundreds']}</div>
+                    <div className={' opacity-30 ms-10 sm:ms-0 md:ms-10 invisible '}>{scrollCounts['hundreds']}</div>
                     :
-                    <div className={' opacity-50 ms-10 sm:ms-0 md:ms-10 '}>{scrollCounts['hundreds'] + 1}</div>
+                    <div className={' opacity-30 ms-10 sm:ms-0 md:ms-10 '}>{scrollCounts['hundreds'] + 1}</div>
                   }
 
-                  <div className={' opacity-50 ' + (scrollCounts['tens'] + 1 > 9 && ' invisible ')}>{scrollCounts['tens'] + 1}</div>
+                  <div className={' opacity-30 ' + (scrollCounts['tens'] + 1 > 9 && ' invisible ')}>{scrollCounts['tens'] + 1}</div>
 
                   {scrollCounts['units'] + 1 > 9 ?
-                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['units']}</div>
+                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['units']}</div>
                     :
-                    <div className={' opacity-50 me-10 sm:me-0 md:me-10 '}>{scrollCounts['units'] + 1}</div>
+                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 '}>{scrollCounts['units'] + 1}</div>
                   }
                 </div>
               </div>

@@ -41,8 +41,8 @@ function WeightForm(props) {
       }
     }
     else {
-      if (event.target.value > 1000) {
-        notify('1000lbs is the maximum');
+      if (event.target.value > 995) {
+        notify('995lbs is the maximum');
         return
       }
     }
@@ -127,7 +127,7 @@ function WeightForm(props) {
               <div className="row-span-1"></div>
               <div className="row-span-2"></div>
               <div className="flex justify-center row-span-2">
-                <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 1000)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-11/12 rounded text-white bg-base-300" />
+                <input value={props?.weight || ""} type="number" step={5} max={(props.single ? 500 : 995)} min={(props.barBell ? 45 : 5)} onChange={handleChange} className="text-center w-11/12 rounded text-white bg-base-300" />
               </div>
               <div className="row-span-2"></div>
               <div className="row-span-1"></div>

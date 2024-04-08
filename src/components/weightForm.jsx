@@ -9,9 +9,9 @@ function WeightForm(props) {
   const [enter, setEnter] = useState(false)
 
   const [scrollCounts, setScrollCounts] = useState({
-    'units': 1,
-    'tens': 1,
-    'hundreds': 1,
+    units: 1,
+    tens: 1,
+    hundreds: 1,
   })
 
   function notify(message) {
@@ -83,8 +83,38 @@ function WeightForm(props) {
         hundredsCount = Number(strWeight[0])
       }
     }
+    setScrollCounts({ ...scrollCounts, units: unitsCount, tens: tensCount, hundreds: hundredsCount })
+  }
 
-    setScrollCounts({ ...scrollCounts, 'units': unitsCount, 'tens': tensCount, 'hundreds': hundredsCount })
+  function changeDigits(digitType, increase) {
+    let newCount = 0
+    if (increase) {
+      if (scrollCounts[digitType] < 9) {
+        newCount = scrollCounts[digitType] + 1
+      } else {
+        newCount = scrollCounts[digitType]
+      }
+      if (digitType == 'units') {
+        setScrollCounts({ ...scrollCounts, units: newCount })
+      } else if (digitType == 'tens') {
+        setScrollCounts({ ...scrollCounts, tens: newCount })
+      } else if (digitType == 'hundreds') {
+        setScrollCounts({ ...scrollCounts, hundreds: newCount })
+      }
+    } else {
+      if (scrollCounts[digitType] > 0) {
+        newCount = scrollCounts[digitType] - 1
+      } else {
+        newCount = scrollCounts[digitType]
+      }
+      if (digitType == 'units') {
+        setScrollCounts({ ...scrollCounts, units: newCount })
+      } else if (digitType == 'tens') {
+        setScrollCounts({ ...scrollCounts, tens: newCount })
+      } else if (digitType == 'hundreds') {
+        setScrollCounts({ ...scrollCounts, hundreds: newCount })
+      }
+    }
   }
 
   useEffect(() => {
@@ -137,22 +167,23 @@ function WeightForm(props) {
             <div className="h-full w-3/4 sm:w-full lg:w-3/4 grid grid-rows-9 ms-2">
               <div className="row-span-1 flex justify-around mx-8">
                 <div className="ms-10 sm:ms-0 md:ms-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                  <button onClick={() => changeDigits('hundreds', false)} className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
+                    <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
+                  </button>
+                </div>
+                <div onClick={() => changeDigits('tens', false)} className="h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
                   </button>
                 </div>
-                <div className="h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
-                  <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
-                    <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
-                  </button>
-                </div>
-                <div className="me-10 sm:m-0 md:me-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                <div onClick={() => changeDigits('units', false)} className="me-10 sm:m-0 md:me-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
                   </button>
                 </div>
               </div>
 
+              {/*Inside Scroll*/}
               <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px]">
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
                   {scrollCounts['hundreds'] - 1 < 0 ?
@@ -194,16 +225,16 @@ function WeightForm(props) {
 
               <div className="row-span-1 flex justify-around mx-8">
                 <div className="ms-10 sm:ms-0 md:ms-10 h-full w-[10%] sm:w-[20%] md:w-[10%]">
+                  <button onClick={() => changeDigits('hundreds', true)} className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
+                    <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
+                  </button>
+                </div>
+                <div onClick={() => changeDigits('tens', true)} className="h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
                   </button>
                 </div>
-                <div className="h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
-                  <button className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
-                    <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
-                  </button>
-                </div>
-                <div className="me-10 sm:m-0 md:me-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                <div onClick={() => changeDigits('units', true)} className="me-10 sm:m-0 md:me-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
                   </button>

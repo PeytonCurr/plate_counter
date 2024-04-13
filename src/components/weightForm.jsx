@@ -117,9 +117,36 @@ function WeightForm(props) {
     }
   }
 
+  function scrollInfluenceWeight() {
+    let tempWeight = (scrollCounts['hundreds'] * 100) + (scrollCounts['tens'] * 10) + scrollCounts['units']
+    if (tempWeight == props.weight) {
+      return
+    }
+    if (props.single) {
+      if (tempWeight > 500) {
+        notify('500lbs is the single-side maximum');
+        return
+      }
+    }
+    else {
+      if (tempWeight > 995) {
+        notify('995lbs is the maximum');
+        return
+      }
+    }
+    if (tempWeight < 45 && props.barBell == true) {
+      props.setBarBell(false)
+    }
+    props.setWeight(tempWeight)
+  }
+
   useEffect(() => {
     translateWeight()
   }, [props.weight])
+
+  useEffect(() => {
+    scrollInfluenceWeight()
+  }, [scrollCounts])
 
   return (
     <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-1 sm:gap-3 px-2 sm:px-4 py-1 sm:py-3 ' + (!props.barBell && 'md:col-span-2')}>

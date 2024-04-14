@@ -9,9 +9,9 @@ function WeightForm(props) {
   const [enter, setEnter] = useState(false)
 
   const [scrollCounts, setScrollCounts] = useState({
-    units: 1,
-    tens: 1,
-    hundreds: 1,
+    units: 0,
+    tens: 0,
+    hundreds: 0,
   })
 
   function notify(message) {
@@ -89,17 +89,25 @@ function WeightForm(props) {
   function changeDigits(digitType, increase) {
     let newCount = 0
     if (increase) {
-      if (scrollCounts[digitType] < 9) {
-        newCount = scrollCounts[digitType] + 1
-      } else {
-        newCount = scrollCounts[digitType]
-      }
       if (digitType == 'units') {
+        if (scrollCounts[digitType] == 0) {
+          newCount = scrollCounts[digitType] + 5
+        } else {
+          newCount = scrollCounts[digitType]
+        }
         setScrollCounts({ ...scrollCounts, units: newCount })
-      } else if (digitType == 'tens') {
-        setScrollCounts({ ...scrollCounts, tens: newCount })
-      } else if (digitType == 'hundreds') {
-        setScrollCounts({ ...scrollCounts, hundreds: newCount })
+      }
+      else {
+        if (scrollCounts[digitType] < 9) {
+          newCount = scrollCounts[digitType] + 1
+        } else {
+          newCount = scrollCounts[digitType]
+        }
+        if (digitType == 'tens') {
+          setScrollCounts({ ...scrollCounts, tens: newCount })
+        } else {
+          setScrollCounts({ ...scrollCounts, hundreds: newCount })
+        }
       }
     } else {
       if (scrollCounts[digitType] > 0) {

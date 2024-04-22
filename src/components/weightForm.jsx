@@ -90,14 +90,9 @@ function WeightForm(props) {
     let newCount = 0
     if (increase) {
       if (digitType == 'units') {
-        if (scrollCounts[digitType] == 0) {
-          newCount = scrollCounts[digitType] + 5
-        } else {
-          newCount = scrollCounts[digitType]
-        }
+        newCount = 5
         setScrollCounts({ ...scrollCounts, units: newCount })
-      }
-      else {
+      } else {
         if (scrollCounts[digitType] < 9) {
           newCount = scrollCounts[digitType] + 1
         } else {
@@ -110,17 +105,20 @@ function WeightForm(props) {
         }
       }
     } else {
-      if (scrollCounts[digitType] > 0) {
-        newCount = scrollCounts[digitType] - 1
-      } else {
-        newCount = scrollCounts[digitType]
-      }
       if (digitType == 'units') {
+        newCount = 0
         setScrollCounts({ ...scrollCounts, units: newCount })
-      } else if (digitType == 'tens') {
-        setScrollCounts({ ...scrollCounts, tens: newCount })
-      } else if (digitType == 'hundreds') {
-        setScrollCounts({ ...scrollCounts, hundreds: newCount })
+      } else {
+        if (scrollCounts[digitType] > 0) {
+          newCount = scrollCounts[digitType] - 1
+        } else {
+          newCount = scrollCounts[digitType]
+        }
+        if (digitType == 'tens') {
+          setScrollCounts({ ...scrollCounts, tens: newCount })
+        } else {
+          setScrollCounts({ ...scrollCounts, hundreds: newCount })
+        }
       }
     }
   }
@@ -229,16 +227,20 @@ function WeightForm(props) {
 
                   <div className={' opacity-30 ' + (scrollCounts['tens'] - 1 < 0 && ' invisible ')}>{scrollCounts['tens'] - 1}</div>
 
-                  {scrollCounts['units'] - 1 < 0 ?
-                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['units']}</div>
+                  {scrollCounts['units'] == 5 ?
+                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 '}>{0}</div>
                     :
-                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 '}>{scrollCounts['units'] - 1}</div>
+                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['units']}</div>
                   }
                 </div>
                 <div className="row-span-1 flex justify-around px-2 mx-5 border-y-[1.5px] text-xl sm:text-2xl bg-base-200 rounded">
                   <div className="ms-11 sm:ms-0 md:ms-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['hundreds']}</div>
                   <div className="text-white font-bold text-shadow-sm shadow-info">{scrollCounts['tens']}</div>
-                  <div className="me-11 sm:me-0 md:me-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['units']}</div>
+                  {scrollCounts['units'] == 5 ?
+                    <div className="me-11 sm:me-0 md:me-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['units']}</div>
+                    :
+                    <div className="me-11 sm:me-0 md:me-11 text-white font-bold text-shadow-sm shadow-info">{0}</div>
+                  }
                 </div>
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
                   {scrollCounts['hundreds'] + 1 > 9 ?
@@ -249,10 +251,10 @@ function WeightForm(props) {
 
                   <div className={' opacity-30 ' + (scrollCounts['tens'] + 1 > 9 && ' invisible ')}>{scrollCounts['tens'] + 1}</div>
 
-                  {scrollCounts['units'] + 1 > 9 ?
+                  {scrollCounts['units'] == 5 ?
                     <div className={' opacity-30 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['units']}</div>
                     :
-                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 '}>{scrollCounts['units'] + 1}</div>
+                    <div className={' opacity-30 me-10 sm:me-0 md:me-10 '}>{5}</div>
                   }
                 </div>
               </div>

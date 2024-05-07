@@ -114,7 +114,7 @@ function BarbellPlates(props) {
               }
               return (
                 <>
-                  <SmartSVG name={name} color={" " + (color)} transform={" " + (props.barBell ? 'rotate(0)' : 'rotate(90)')} />
+                  <SmartSVG name={name} color={" " + (color)} transform={" " + (props.barBell ? 'rotate(0deg)' : 'rotate(90deg)')} />
                 </>
               )
             }
@@ -234,7 +234,7 @@ function BarbellPlates(props) {
                         </div>
                         :
                         <div className={'w-full absolute'} style={{ bottom: `${pastDistanceLeft + startDistance + (innerDistance * (countILeft - 1))}vw` }} >
-                          <SmartSVG name={name} color={" " + (color)} transform={" " + (props.barBell ? 'rotate(0)' : 'rotate(90)')} />
+                          <SmartSVG name={name} color={" " + (color)} transform={'rotate(90deg)'} />
                         </div>
                       }
                     </>
@@ -295,7 +295,7 @@ function BarbellPlates(props) {
               }
               return (
                 <>
-                  <SmartSVG name={name} color={" " + (color)} transform={"scale(-1,1) translate(0 0) " + (props.barBell ? 'rotate(0)' : 'rotate(90)')} />
+                  <SmartSVG name={name} color={" " + (color)} transform={" " + (props.barBell ? 'rotate(180deg)' : 'rotate(90deg)')} />
                 </>
               )
             }
@@ -411,11 +411,11 @@ function BarbellPlates(props) {
                     <>
                       {props.barBell ?
                         <div className={'w-full absolute bottom-0'} style={{ left: `${pastDistance + startDistance + (innerDistance * (countI - 1))}vw` }} >
-                          <SmartSVG name={name} color={" " + (color)} transform={`scale(-1,1)`} />
+                          <SmartSVG name={name} color={" " + (color)} transform={`rotate(180deg)`} />
                         </div>
                         :
                         <div className={'w-full absolute'} style={{ bottom: `${pastDistance + startDistance + (innerDistance * (countI - 1))}vw` }} >
-                          <SmartSVG name={name} color={" " + (color)} transform={`rotate(-90) scale(-1,1)`} />
+                          <SmartSVG name={name} color={" " + (color)} transform={`rotate(90deg)`} />
                         </div>
                       }
                     </>

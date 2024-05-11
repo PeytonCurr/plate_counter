@@ -198,18 +198,18 @@ function WeightForm(props) {
           }
           {!enter &&
             <div className="h-full w-3/4 sm:w-full lg:w-3/4 grid grid-rows-9 ms-2">
-              <div className="row-span-1 flex justify-around mx-8">
-                <div className="ms-10 sm:ms-0 md:ms-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+              <div className="row-span-1 flex justify-start xs:justify-around mx-3.5 xs:mx-8">
+                <div className="ms-10 sm:ms-0 md:ms-10 pe-1 xs:pe-0 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
                   <button onClick={() => changeDigits('hundreds', false)} className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
                   </button>
                 </div>
-                <div onClick={() => changeDigits('tens', false)} className="h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                <div onClick={() => changeDigits('tens', false)} className="h-full relative w-[10%] sm:w-[20%] md:w-[10%] px-0.5 xs:px-0">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
                   </button>
                 </div>
-                <div onClick={() => changeDigits('units', false)} className="me-10 sm:m-0 md:me-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                <div onClick={() => changeDigits('units', false)} className="me-10 sm:m-0 md:me-10 ps-1 xs:ps-0 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
                   </button>
@@ -217,8 +217,8 @@ function WeightForm(props) {
               </div>
 
               {/*Inside Scroll*/}
-              <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px]">
-                <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
+              <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px] w-3/4 xs:w-full ">
+                <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl place-items-center ">
                   {scrollCounts['hundreds'] - 1 < 0 ?
                     <div className={' opacity-30 ms-10 sm:ms-0 md:ms-10 invisible '}> {scrollCounts['hundreds']} </div>
                     :
@@ -233,7 +233,7 @@ function WeightForm(props) {
                     <div className={' opacity-30 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['units']}</div>
                   }
                 </div>
-                <div className="row-span-1 flex justify-around px-2 mx-5 border-y-[1.5px] text-xl sm:text-2xl bg-base-200 rounded">
+                <div className="row-span-1 flex justify-around w-5/6 xs:w-auto xs:px-2 ms-1.5 xs:mx-5 border-y-[1.5px] text-xl sm:text-2xl bg-base-200 rounded place-items-center">
                   <div className="ms-11 sm:ms-0 md:ms-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['hundreds']}</div>
                   <div className="text-white font-bold text-shadow-sm shadow-info">{scrollCounts['tens']}</div>
                   {scrollCounts['units'] == 5 ?
@@ -242,7 +242,7 @@ function WeightForm(props) {
                     <div className="me-11 sm:me-0 md:me-11 text-white font-bold text-shadow-sm shadow-info">{0}</div>
                   }
                 </div>
-                <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl">
+                <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl place-items-center">
                   {scrollCounts['hundreds'] + 1 > 9 ?
                     <div className={' opacity-30 ms-10 sm:ms-0 md:ms-10 invisible '}>{scrollCounts['hundreds']}</div>
                     :

@@ -174,7 +174,7 @@ function WeightForm(props) {
         <div className="divider divider-horizontal divider-neutral m-1"></div>
 
         {/*Right Side*/}
-        <div className="row-span-2 flex items-center justify-center w-full">
+        <div className="row-span-2 flex items-center justify-start xxs:justify-center xs:justify-center w-full">
           <div className="h-full grid grid-rows-8">
             <div className="row-span-1"></div>
             <div className="row-span-2"></div>
@@ -197,19 +197,19 @@ function WeightForm(props) {
             </div>
           }
           {!enter &&
-            <div className="h-full w-3/4 sm:w-full lg:w-3/4 grid grid-rows-9 ms-2">
-              <div className="row-span-1 flex justify-start xs:justify-around mx-3.5 xs:mx-8">
-                <div className="ms-10 sm:ms-0 md:ms-10 pe-1 xs:pe-0 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+            <div className="h-full w-1/2 xs:w-3/4 grid grid-rows-9 ms-2">
+              <div className="row-span-1 flex justify-start xs:justify-around mx-1 xs:mx-8">
+                <div className="ms-10 sm:ms-0 md:ms-10 me-0.5 xs:me-0 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
                   <button onClick={() => changeDigits('hundreds', false)} className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
                   </button>
                 </div>
-                <div onClick={() => changeDigits('tens', false)} className="h-full relative w-[10%] sm:w-[20%] md:w-[10%] px-0.5 xs:px-0">
+                <div onClick={() => changeDigits('tens', false)} className="h-full relative w-[10%] sm:w-[20%] md:w-[10%] mx-0.25 xs:mx-0">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
                   </button>
                 </div>
-                <div onClick={() => changeDigits('units', false)} className="me-10 sm:m-0 md:me-10 ps-1 xs:ps-0 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                <div onClick={() => changeDigits('units', false)} className="me-10 sm:m-0 md:me-10 ms-0.5 xs:ms-0 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[2px] sm:mt-[3px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronUp} size={1} color="white" rotate={0} />
                   </button>
@@ -217,7 +217,7 @@ function WeightForm(props) {
               </div>
 
               {/*Inside Scroll*/}
-              <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px] w-3/4 xs:w-full ">
+              <div className="row-span-7 grid gird-rows-6 bg-base-300 rounded-box py-1 sm:py-2 border-y-[.25px] w-3/4 xs:w-full justify-center xs:justify-normal">
                 <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl place-items-center ">
                   {scrollCounts['hundreds'] - 1 < 0 ?
                     <div className={' opacity-30 ms-10 sm:ms-0 md:ms-10 invisible '}> {scrollCounts['hundreds']} </div>
@@ -233,16 +233,16 @@ function WeightForm(props) {
                     <div className={' opacity-30 me-10 sm:me-0 md:me-10 invisible '}>{scrollCounts['units']}</div>
                   }
                 </div>
-                <div className="row-span-1 flex justify-around w-5/6 xs:w-auto xs:px-2 ms-1.5 xs:mx-5 border-y-[1.5px] text-xl sm:text-2xl bg-base-200 rounded place-items-center">
-                  <div className="ms-11 sm:ms-0 md:ms-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['hundreds']}</div>
-                  <div className="text-white font-bold text-shadow-sm shadow-info">{scrollCounts['tens']}</div>
+                <div className="row-span-1 flex justify-around xs:px-2 mx-7 xs:mx-5 border-y-[1.5px] text-xl sm:text-2xl bg-base-200 rounded place-items-center">
+                  <div className="ms-11 sm:ms-0 md:ms-11 me-1 xs:me-0 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['hundreds']}</div>
+                  <div className="text-white font-bold text-shadow-sm shadow-info mx-0.5 xs:mx-0">{scrollCounts['tens']}</div>
                   {scrollCounts['units'] == 5 ?
-                    <div className="me-11 sm:me-0 md:me-11 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['units']}</div>
+                    <div className="me-11 sm:me-0 md:me-11 ms-1 xs:ms-0 text-white font-bold text-shadow-sm shadow-info">{scrollCounts['units']}</div>
                     :
-                    <div className="me-11 sm:me-0 md:me-11 text-white font-bold text-shadow-sm shadow-info">{0}</div>
+                    <div className="me-11 sm:me-0 md:me-11 ms-1 xs:ms-0 text-white font-bold text-shadow-sm shadow-info">{0}</div>
                   }
                 </div>
-                <div className="row-span-1 flex justify-around mx-8 text-xl sm:text-2xl place-items-center">
+                <div className="row-span-1 flex justify-around mx-7 xs:mx-8 text-xl sm:text-2xl place-items-center">
                   {scrollCounts['hundreds'] + 1 > 9 ?
                     <div className={' opacity-30 ms-10 sm:ms-0 md:ms-10 invisible '}>{scrollCounts['hundreds']}</div>
                     :
@@ -260,18 +260,18 @@ function WeightForm(props) {
               </div>
 
 
-              <div className="row-span-1 flex justify-around mx-8">
-                <div className="ms-10 sm:ms-0 md:ms-10 h-full w-[10%] sm:w-[20%] md:w-[10%]">
+              <div className="row-span-1 flex justify-start xs:justify-around mx-1 xs:mx-8">
+                <div className="ms-10 sm:ms-0 md:ms-10 me-0.5 xs:me-0 h-full w-[10%] sm:w-[20%] md:w-[10%]">
                   <button onClick={() => changeDigits('hundreds', true)} className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
                   </button>
                 </div>
-                <div onClick={() => changeDigits('tens', true)} className="h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                <div onClick={() => changeDigits('tens', true)} className="h-full relative w-[10%] sm:w-[20%] md:w-[10%] mx-0.25 xs:mx-0">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
                   </button>
                 </div>
-                <div onClick={() => changeDigits('units', true)} className="me-10 sm:m-0 md:me-10 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
+                <div onClick={() => changeDigits('units', true)} className="me-10 sm:m-0 md:me-10 ms-0.5 xs:ms-0 h-full relative w-[10%] sm:w-[20%] md:w-[10%]">
                   <button className="border hover:border-2 rounded h-[75%] w-full mt-[1px] sm:mt-[2px] bg-neutral flex items-center justify-center">
                     <Icon path={mdiChevronDown} size={1} color="white" rotate={0} />
                   </button>

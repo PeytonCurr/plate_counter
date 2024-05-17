@@ -39,12 +39,12 @@ function Stats(props) {
         {(!props.single && !props.barBell) &&
           <div className='absolute ps-1 sm:ps-0 sm:pt-1 ' >L</div>
         }
-        <ul className={'flex h-full items-center ' + (props.barBell ? ' flex-row-reverse justify-start ' : ' justify-center ')}>
-          {plates.map((plate) => (
+        <ul className={'h-full items-center grid grid-cols-2 grid-flow-dense ' + (props.barBell ? '  ' : '  ')}>
+          {plates.map((plate, index) => (
             <>
               {props.counts[plate] > 0 &&
-                <li key={plate} className='p-1 sm:p-2'>
-                  <div className='text-center'>
+                <li key={plate} className={'p-1 sm:p-2 flex justify-center col-start-2 ' + (index % 2 === 0 ? 'row-start-' + (index / 2 + 1) : 'row-start-' + ((index - 1) / 2 + 1) + ' col-start-1')}>
+                  <div className='text-center w-min'>
                     <p
                       className={
                         'text-black border-2 rounded-full p-2 text-xs sm:text-base '

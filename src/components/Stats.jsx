@@ -4,10 +4,16 @@ import SmallBarBell from './svgs/SmallBarBell.jsx';
 function Stats(props) {
 
   const plates = [45, 35, 25, 10, 5, 2.5];
+  let shrunkPlates = [];
 
   useEffect(() => {
     displayStats()
   }, [props.weight, props.single, props.barBell]);
+
+  useEffect(() => {
+    shrunkPlates = plates.filter(plate => props.counts[plate] > 0)
+    console.log(shrunkPlates.length)
+  }, [props.counts])
 
   function displayStats() {
     let plateCounter = {}
@@ -35,30 +41,26 @@ function Stats(props) {
     <div className={'bg-blue-300 rounded shadow grid p-2 sm:px-4 row-span-1 sm:row-span-2 ' + (props.single ? ' grid-cols-1 pb-3 md:pb-6 md:pt-4 stack items-center ' : ' grid-cols-2 ') + (props.barBell ? ' grid-cols-5 ' : ' md:row-span-5 md:grid-cols-1 gap-2 sm:gap-4 ') + ((!props.single && !props.barBell) && ' md:py-4 ')}>
 
 
-      <div className={' bg-slate-700 py-2 h-full' + (props.barBell ? ' col-span-2 rounded-l pr-2 md:pr-6 ' : ' shadow rounded px-2 sm:px-6 ')}>
+      <div className={' bg-slate-700 py-2 h-full' + (props.barBell ? ' col-span-2 rounded-l pr-2 xs:pr-6 ' : ' shadow rounded px-2 sm:px-6 ')}>
         {(!props.single && !props.barBell) &&
           <div className='absolute ps-1 sm:ps-0 sm:pt-1 ' >L</div>
         }
-        <ul className={'h-full items-center grid grid-cols-2 grid-flow-dense ' + (props.barBell ? '  ' : '  ')}>
-          {plates.map((plate, index) => (
-            <>
-              {props.counts[plate] > 0 &&
-                <li key={plate} className={'p-1 sm:p-2 flex justify-center col-start-2 ' + (index % 2 === 0 ? 'row-start-' + (index / 2 + 1) : 'row-start-' + ((index - 1) / 2 + 1) + ' col-start-1')}>
-                  <div className='text-center w-min'>
-                    <p
-                      className={
-                        'text-black border-2 rounded-full p-2 text-xs sm:text-base '
-                        + (plate == 45 && ' px-2 sm:px-2.5 border-red-600 bg-red-100 ') + (plate == 35 && ' px-2 sm:px-2.5 border-blue-600 bg-blue-100 ') + (plate == 25 && ' px-2 sm:px-2.5 border-yellow-600 bg-yellow-100 ') + (plate == 10 && ' px-2.5 sm:px-3 border-green-600 bg-green-100 ') + (plate == 5 && ' px-3 sm:px-3.5 border-zinc-950 bg-zinc-400 ') + (plate == 2.5 && ' px-1.5 sm:px-2 border-gray-700 bg-gray-300 ')}>
-                      {plate}
-                    </p>
-                    <p className='text-xs sm:text-base'> x </p>
-                    <p className='text-xs sm:text-base'>
-                      {props.counts[plate]}
-                    </p>
-                  </div>
-                </li>
-              }
-            </>
+        <ul className={'h-full items-center ' + (shrunkPlates.length < 2 ? ' sm:flex grid grid-cols-2 grid-flow-dense ' : ' flex ') + (props.barBell ? ' flex-row-reverse justify-start ' : ' justify-center ')}>
+          {plates.filter(plate => props.counts[plate] > 0).map((plate, index) => (
+            <li key={plate} className={'p-1 sm:p-2 flex justify-center ' + (index == 0 && ' col-start-2 row-start-1 ') + (index == 1 && ' col-start-1 row-start-1 ') + (index == 2 && ' col-start-2 row-start-2 ') + (index == 3 && ' col-start-1 row-start-2 ')}>
+              <div className='text-center w-min'>
+                <p
+                  className={
+                    'text-black border-2 rounded-full p-2 text-xs sm:text-base '
+                    + (plate == 45 && ' px-2 sm:px-2.5 border-red-600 bg-red-100 ') + (plate == 35 && ' px-2 sm:px-2.5 border-blue-600 bg-blue-100 ') + (plate == 25 && ' px-2 sm:px-2.5 border-yellow-600 bg-yellow-100 ') + (plate == 10 && ' px-2.5 sm:px-3 border-green-600 bg-green-100 ') + (plate == 5 && ' px-3 sm:px-3.5 border-zinc-950 bg-zinc-400 ') + (plate == 2.5 && ' px-1.5 sm:px-2 border-gray-700 bg-gray-300 ')}>
+                  {plate}
+                </p>
+                <p className='text-xs sm:text-base'> x </p>
+                <p className='text-xs sm:text-base'>
+                  {props.counts[plate]}
+                </p>
+              </div>
+            </li>
           ))}
         </ul>
       </div>
@@ -75,7 +77,7 @@ function Stats(props) {
       }
 
 
-      <div className={' bg-slate-700 py-2 h-full ' + (props.single && ' w-[103%] ') + (props.barBell ? ' col-span-2 rounded-r pl-2 md:pl-6 ' : ' shadow rounded px-2 sm:px-6 ')}>
+      <div className={' bg-slate-700 py-2 h-full ' + (props.single && ' w-[103%] ') + (props.barBell ? ' col-span-2 rounded-r pl-2 xs:pl-6 ' : ' shadow rounded px-2 sm:px-6 ')}>
         {(!props.single && !props.barBell) &&
           <div className='absolute ps-1 sm:ps-0 sm:pt-1' >R</div>
         }

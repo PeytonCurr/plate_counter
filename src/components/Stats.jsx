@@ -4,16 +4,10 @@ import SmallBarBell from './svgs/SmallBarBell.jsx';
 function Stats(props) {
 
   const plates = [45, 35, 25, 10, 5, 2.5];
-  let shrunkPlates = [];
 
   useEffect(() => {
     displayStats()
   }, [props.weight, props.single, props.barBell]);
-
-  useEffect(() => {
-    shrunkPlates = plates.filter(plate => props.counts[plate] > 0)
-    console.log(shrunkPlates.length)
-  }, [props.counts])
 
   function displayStats() {
     let plateCounter = {}
@@ -41,13 +35,13 @@ function Stats(props) {
     <div className={'bg-blue-300 rounded shadow grid p-2 sm:px-4 row-span-1 sm:row-span-2 ' + (props.single ? ' grid-cols-1 pb-3 md:pb-6 md:pt-4 stack items-center ' : ' grid-cols-2 ') + (props.barBell ? ' grid-cols-5 ' : ' md:row-span-5 md:grid-cols-1 gap-2 sm:gap-4 ') + ((!props.single && !props.barBell) && ' md:py-4 ')}>
 
 
-      <div className={' bg-slate-700 py-2 h-full' + (props.barBell ? ' col-span-2 rounded-l pr-2 xs:pr-6 ' : ' shadow rounded px-2 sm:px-6 ')}>
+      <div className={' bg-slate-700 py-2 h-full' + (props.barBell ? ' col-span-2 rounded-l pr-2 md:pr-6 ' : ' shadow rounded px-2 sm:px-6 ')}>
         {(!props.single && !props.barBell) &&
           <div className='absolute ps-1 sm:ps-0 sm:pt-1 ' >L</div>
         }
-        <ul className={'h-full items-center ' + (shrunkPlates.length < 2 ? ' sm:flex grid grid-cols-2 grid-flow-dense ' : ' flex ') + (props.barBell ? ' flex-row-reverse justify-start ' : ' justify-center ')}>
+        <ul className={'h-full items-center sm:flex grid grid-cols-2 grid-flow-dense ' + (props.barBell ? ' flex-row-reverse justify-start ' : ' justify-center ')}>
           {plates.filter(plate => props.counts[plate] > 0).map((plate, index) => (
-            <li key={plate} className={'p-1 sm:p-2 flex justify-center ' + (index == 0 && ' col-start-2 row-start-1 ') + (index == 1 && ' col-start-1 row-start-1 ') + (index == 2 && ' col-start-2 row-start-2 ') + (index == 3 && ' col-start-1 row-start-2 ')}>
+            <li key={plate} className={'p-1 sm:p-2 flex ' + (index == 0 && ' col-start-2 row-start-1 justify-center ') + (index == 1 && ' col-start-1 row-start-1 justify-end ') + (index == 2 && ' col-start-2 row-start-2 justify-center ') + (index == 3 && ' col-start-1 row-start-2 justify-end ')}>
               <div className='text-center w-min'>
                 <p
                   className={

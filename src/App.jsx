@@ -34,7 +34,7 @@ function App() {
   return (
     <div className='bg-slate-700 text-white select-none'>
       <Navbar />
-      <section className={'grid grid-cols-1 grid-rows-5 sm:grid-rows-7 p-2 pt-0 gap-2 ' + (!barBell && 'md:grid-cols-2')} style={{ height: "92vh" }}>
+      <section className={'grid grid-cols-1 grid-rows-8 sm:grid-rows-7 p-2 pt-0 gap-2 ' + (!barBell && 'md:grid-cols-2')} style={{ height: "92vh" }}>
 
         <BarbellPlates weight={weight} barBell={barBell} counts={counts} single={single} />
 

@@ -155,9 +155,9 @@ function WeightForm(props) {
   }, [scrollCounts])
 
   return (
-    <div className={'items-center rounded bg-blue-300 shadow row-span-2 grid grid-cols-10 grid-rows-2 sm:grid-rows-1 gap-1 sm:gap-3 px-2 sm:px-4 py-1 sm:py-3 ' + (!props.barBell && 'md:col-span-2')}>
+    <div className={'items-center rounded bg-blue-300 shadow row-span-3 sm:row-span-2 grid grid-cols-10 grid-rows-5 sm:grid-rows-1 gap-1 sm:gap-3 px-2 sm:px-4 py-1 sm:py-3 ' + (!props.barBell && 'md:col-span-2')}>
 
-      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-2 sm:px-3 col-span-10 sm:col-span-6 text-lg h-full flex '>
+      <form onSubmit={handleSubmit} className=' bg-slate-700 rounded shadow px-2 sm:px-3 col-span-10 sm:col-span-6 row-span-3 sm:row-auto text-lg h-full flex '>
 
         {/*Left Side*/}
         <div className="h-full grid grid-rows-4 sm:grid-rows-7">
@@ -284,34 +284,38 @@ function WeightForm(props) {
 
       </form>
 
-      <form className=' bg-slate-700 rounded shadow pt-6 pb-5 col-span-5 sm:col-span-2 text-center'>
-        <h1 className='mb-3 text-white font-bold text-shadow-sm shadow-info'>45lb Barbell?</h1>
-        <input className="mb-0 toggle toggle-info" type="checkbox" checked={props.barBell} onChange={e => {
-          props.setBarBell(e.target.checked)
-          if (props.single == true) {
-            props.setSingle(!e.target.checked)
-          }
-          if (props.weight < 45) {
-            props.setWeight(45)
-          }
-        }} />
-      </form>
+      <div className="col-span-10 sm:col-span-4 row-span-2 sm:row-auto grid grid-cols-10 gap-2 sm:gap-3">
 
-      <form className=' bg-slate-700 rounded shadow pt-6 pb-5 col-span-5 sm:col-span-2 text-center'>
-        <h1 className='mb-3 text-white font-bold text-shadow-sm shadow-info'>Single Side?</h1>
-        <input className="mb-0 toggle toggle-info" type="checkbox" checked={props.single} onChange={e => {
-          if (!props.single) {
-            if (props.weight > 500) {
-              notify('500lbs is the single-side maximum')
-              return
+        <form className=' bg-slate-700 rounded shadow pt-3 pb-2 col-span-5 text-center'>
+          <h1 className='mb-3 text-white font-bold text-shadow-sm shadow-info'>45lb Barbell?</h1>
+          <input className="mb-0 toggle toggle-info" type="checkbox" checked={props.barBell} onChange={e => {
+            props.setBarBell(e.target.checked)
+            if (props.single == true) {
+              props.setSingle(!e.target.checked)
             }
-          }
-          props.setSingle(e.target.checked)
-          if (props.barBell == true) {
-            props.setBarBell(!e.target.checked)
-          }
-        }} />
-      </form>
+            if (props.weight < 45) {
+              props.setWeight(45)
+            }
+          }} />
+        </form>
+
+        <form className=' bg-slate-700 rounded shadow pt-3 pb-2 col-span-5 text-center'>
+          <h1 className='mb-3 text-white font-bold text-shadow-sm shadow-info'>Single Side?</h1>
+          <input className="mb-0 toggle toggle-info" type="checkbox" checked={props.single} onChange={e => {
+            if (!props.single) {
+              if (props.weight > 500) {
+                notify('500lbs is the single-side maximum')
+                return
+              }
+            }
+            props.setSingle(e.target.checked)
+            if (props.barBell == true) {
+              props.setBarBell(!e.target.checked)
+            }
+          }} />
+        </form>
+
+      </div>
 
     </div >
   );
